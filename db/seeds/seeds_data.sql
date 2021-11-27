@@ -4,7 +4,7 @@ INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Bo
 INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Wonder', 'Wanda',false,'wonder@gmail.com','12345');
 
 
-INSERT INTO messages 
+INSERT INTO messages
 VALUES (1, 1),
 (2, 2)
 (3, 3);
@@ -14,16 +14,16 @@ VALUES (1, 1),
 (2, 2),
 (3, 3);
 
-INSERT INTO chats 
+INSERT INTO chats
 VALUES (1, 1),
 (2, 2),
 (3, 3);
 
 
 
-INSTER INTO items VALUES (
-  1, 
-"Steinberg Piano", 
+INSERT INTO items VALUES (
+  1,
+"Steinberg Piano",
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
 128-note polyphony with sound effects engaged.
@@ -36,9 +36,9 @@ false,
 false
 )
 
-INSTER INTO items VALUES (
-  2, 
-"Fender Mustang", 
+INSERT INTO items VALUES (
+  2,
+"Fender Mustang",
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
 128-note polyphony with sound effects engaged.
@@ -51,9 +51,9 @@ false,
 false
 )
 
-INSTER INTO items VALUES (
-  3, 
-"Pearl Drums", 
+INSERT INTO items VALUES (
+  3,
+"Pearl Drums",
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
 128-note polyphony with sound effects engaged.
