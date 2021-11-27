@@ -20,3 +20,21 @@ CREATE TABLE items (
   is_sold boolean
   is_deleted
 );
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY NOT NULL,
+  chat_id INTEGER REFERENCES chats(id) ON DELETE CASCADE,
+  time_sent TIME,
+  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE favourites (
+  id SERIAL PRIMARY KEY NOT NULL,
+  item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE chats (
+  id SERIAL PRIMARY KEY NOT NULL,
+  item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
+  buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
