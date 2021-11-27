@@ -3,27 +3,8 @@ INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Al
 INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Bob', 'Smith',true,'Bobsmith@gmail.com','12345');
 INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Wonder', 'Wanda',false,'wonder@gmail.com','12345');
 
-
-INSERT INTO messages
-VALUES (1, 1),
-(2, 2)
-(3, 3);
-
-INSERT INTO favourites
-VALUES (1, 1),
-(2, 2),
-(3, 3);
-
-INSERT INTO chats
-VALUES (1, 1),
-(2, 2),
-(3, 3);
-
-
-
-INSERT INTO items VALUES (
-  1,
-"Steinberg Piano",
+INSERT INTO items (name, description, image, price, admin_id, is_sold, is_deleted) VALUES (
+'Steinberg Piano',
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
 128-note polyphony with sound effects engaged.
@@ -34,11 +15,10 @@ Voice mode: Main, multi-layer for 4 voices
 1,
 false,
 false
-)
+);
 
-INSERT INTO items VALUES (
-  2,
-"Fender Mustang",
+INSERT INTO items (name, description, image, price, admin_id, is_sold, is_deleted) VALUES (
+'Fender Mustang',
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
 128-note polyphony with sound effects engaged.
@@ -49,11 +29,10 @@ Voice mode: Main, multi-layer for 4 voices
 1,
 false,
 false
-)
+);
 
-INSERT INTO items VALUES (
-  3,
-"Pearl Drums",
+INSERT INTO items (name, description, image, price, admin_id, is_sold, is_deleted) VALUES (
+'Pearl Drums',
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
 128-note polyphony with sound effects engaged.
@@ -64,4 +43,25 @@ Voice mode: Main, multi-layer for 4 voices
 1,
 false,
 false
-)
+);
+
+INSERT INTO favourites
+VALUES (1, 1),
+(2, 2),
+(3, 3);
+
+INSERT INTO chats (item_id, buyer_id )
+VALUES (1, 1),
+(2, 2),
+(3, 3);
+
+
+INSERT INTO messages
+VALUES (1, 1),
+(2, 2),
+(3, 3);
+
+
+
+
+
