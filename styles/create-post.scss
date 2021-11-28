@@ -1,0 +1,30 @@
+body {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#create-post {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.create-post {
+  text-align: center;
+  border: black 3px solid;
+  margin: 2rem;
+  font-size: large;
+
+}
+.actions {
+  text-align: center;
+  margin: 2rem;
+}
+
