@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS messages CASCADE;
 DROP TABLE IF EXISTS favourites CASCADE;
 DROP TABLE IF EXISTS chats CASCADE;
 
-
+DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   first_name VARCHAR(255) NOT NULL,
@@ -23,8 +23,8 @@ CREATE TABLE items (
   image VARCHAR(255) NOT NULL,
   price INTEGER NOT NULL,
   admin_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  is_sold boolean,
-  is_deleted boolean
+  is_sold BOOLEAN,
+  is_deleted BOOLEAN
 );
 
 
@@ -43,5 +43,6 @@ CREATE TABLE chats (
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   chat_id INTEGER REFERENCES chats(id) ON DELETE CASCADE,
+  -- time_sent TIMESTAMP,
   sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
