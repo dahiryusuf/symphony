@@ -64,4 +64,6 @@ app.get("/my-item", (req, res) => {
   res.render("item-display");
 });
 
-app.post("/")
+app.post("/post", (req, res) => {
+  res.redirect("/my-item");
+});
