@@ -7,7 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-
+const cloudinary = require("cloudinary");
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -15,6 +15,12 @@ const database = require("./public/scripts/database");
 const db = new Pool(dbParams);
 db.connect();
 
+//Configure cloudinary media storage
+cloudinary.config({
+  cloud_name: 'dtx8hllui',
+  api_key: '835956466622922',
+  api_secret: process.env.CLOUDINARY_SECRET
+});
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -43,6 +49,12 @@ const mainRoutes = require("./routes/mainRoutes");
 // Note: Feel free to replace the example routes below with your own
 app.use("/", mainRoutes(db, database));
 
+const itemsRoutes = require("./routes/items");
+
+// Mount all resource routes
+// Note: Feel free to replace the example routes below with your own
+app.use("/api/users", usersRoutes(db));
+app.use("/api/items", itemsRoutes(db))
 // Note: mount other resources here, using the same pattern above
 
 // Home page

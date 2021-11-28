@@ -1,0 +1,31 @@
+.image {
+  border: black 3px solid;
+  text-align: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 3rem;
+
+}
+
+.item-description {
+  border: black 3px solid;
+  text-align: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 3rem;
+
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image#image {
+  width:auto;
+  height: auto;
+}

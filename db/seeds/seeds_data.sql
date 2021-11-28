@@ -1,9 +1,17 @@
--- Users table seeds here (Example)
+-- -- Users table seeds here (Example)
 INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Alice', 'Wonderland',false,'alicewonder@gmail.com','12345');
 INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Bob', 'Smith',true,'Bobsmith@gmail.com','12345');
 INSERT INTO users (first_name, last_name, is_admin, email, password) VALUES ('Wonder', 'Wanda',false,'wonder@gmail.com','12345');
 
-INSERT INTO items (name, description, image, price, admin_id, is_sold, is_deleted) VALUES (
+
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
 'Steinberg Piano',
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
@@ -17,7 +25,14 @@ true,
 false
 );
 
-INSERT INTO items (name, description, image, price, admin_id, is_sold, is_deleted) VALUES (
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
 'Fender Mustang',
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
@@ -31,7 +46,14 @@ false,
 false
 );
 
-INSERT INTO items (name, description, image, price, admin_id, is_sold, is_deleted) VALUES (
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
 'Pearl Drums',
 'Black. Attractive cabinet with polished wood and grand styling
 88 key graded hammer action velocity sensitive
@@ -45,7 +67,7 @@ false,
 false
 );
 
-INSERT INTO favourites
+INSERT INTO favourites (item_id, user_id)
 VALUES (1, 1),
 (2, 2),
 (3, 3);
@@ -55,13 +77,7 @@ VALUES (1, 1),
 (2, 2),
 (3, 3);
 
-
 INSERT INTO messages
 VALUES (1, 1),
 (2, 2),
 (3, 3);
-
-
-
-
-
