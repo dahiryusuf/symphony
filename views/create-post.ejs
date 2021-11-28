@@ -19,16 +19,14 @@
   <div class="create-post"> Create a Post</div>
 
   <main class="container">
-    <section class="new-tweet">
       <form id="create-post" method="POST" action="/post/">
-        <textarea name="text" id="item-image" placeholder="Add an image here"></textarea>
+        <input class="choose-image" type="file" id="myFile" name="filename">
+        <textarea name="text" id="item-title" placeholder="Add title here"></textarea>
         <textarea name="text" id="item-description" placeholder="Add descrition here"></textarea>
         <div class="actions">
           <button type="submit">Post</button>
         </div>
       </form>
-
-    </section>
   </main>
 
 

@@ -57,9 +57,11 @@ app.listen(PORT, () => {
 });
 
 app.get("/post", (req, res) => {
-  res.render("create-item");
+  res.render("create-post");
 });
 
 app.get("/my-item", (req, res) => {
   res.render("item-display");
 });
+
+app.post("/")
