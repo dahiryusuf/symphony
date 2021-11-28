@@ -4,11 +4,13 @@ const router  = express.Router();
 
 module.exports = (db, database) => {
   router.get("/", (req, res) => {
-   database.getAllItems()
+    db.query(`
+    SELECT *
+    FROM items
+    Where is_sold IS false AND is_deleted IS false;`)
       .then(data => {
-        const items = data[0].rows;
-        const templevars = { data: "car"}
-        console.log(items)
+        const items = data.rows;
+        const templevars = { items}
         res.render("mainpage",templevars)
       })
       .catch(err => {
