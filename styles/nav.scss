@@ -1,0 +1,86 @@
+@use 'vars' as color;
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 8vh;
+  background-color: color.$main-green;
+  
+}
+
+.logo {
+  color: color.$main-yellow;
+  letter-spacing: 3px;
+  font-size: 1.3rem;
+  margin: 0 30px 0 30px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+
+  width: 80%;
+  margin-right: 30px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: color.$main-yellow;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+.burger div{
+ width: 27px;
+ height: 2px;
+ background-color: color.$main-yellow;
+ margin: 5px;
+}
+
+.burger {
+  display: none;
+}
+
+@media screen and (max-width: 830px) {
+  body {
+    overflow-x: hidden;
+  }
+ .nav-links {
+   position: absolute;
+   right: 0px;
+   height: 92vh;
+   top: 8vh;
+   background-color: color.$main-green;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+  align-items: center;
+  width: 60%;
+  transform: translateX(100%);
+ }
+ .nav-links li {
+   opacity: 0;
+   transition: transform 0.5s ease-in;
+ }
+ .logo {
+
+  text-align: center;
+  }
+ .burger {
+   display: block;
+
+ }
+
+  nav {
+    justify-content: space-around;
+  }
+
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
