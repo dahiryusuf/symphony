@@ -1,0 +1,110 @@
+@use 'vars' as color;
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  background-color: color.$main-green;
+
+}
+
+.logo {
+  width: 250px;
+  margin-left: 30px;
+}
+
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+
+  width: 90%;
+  margin-right: 30px;
+}
+
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: color.$main-yellow;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+
+.burger div{
+ width: 25px;
+ height: 2px;
+ background-color: color.$main-yellow;
+ margin: 5px;
+ transition: all 0.3s ease;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+@media all and (max-width: 800px) {
+  body {
+    overflow-x: hidden;
+  }
+ .nav-links {
+   position: absolute;
+   right: 0px;
+   height: 95vh;
+   top: 7vh;
+   background-color: color.$main-green;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+  align-items: center;
+  width: 60%;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in;
+ }
+ .nav-links li {
+   opacity: 0;
+   transition: transform 0.5s ease-in;
+ }
+ .logo {
+
+  text-align: center;
+  }
+ .burger {
+   display: block;
+
+ }
+
+  nav {
+    justify-content: space-around;
+  }
+
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+}
+
+.toggle .line1 {
+transform: rotate(-45deg) translate(-5px, 5px);
+}
+.toggle .line2 {
+opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -5px);
+}
