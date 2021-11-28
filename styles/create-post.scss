@@ -1,0 +1,55 @@
+body {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#create-post {
+  width: 700px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: purple 3px solid;
+}
+
+.choose-image {
+  text-align: center;
+  border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.create-post {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  font-size: 50px;
+}
+
+#item-description {
+  width: 500px;
+  height: 70px;
+  border: yellow 3px solid;
+}
+#item-title {
+  width: 500px;
+  height: 70px;
+  border: green 3px solid;
+}
+.actions {
+  text-align: center;
+  margin: 2rem;
+
+}
+
