@@ -1,5 +1,4 @@
 const { Pool } = require('pg');
-console.log(process.env.DB_USER, process.env.DB_PASS,process.env.DB_HOST,process.env.DB_NAME);
 const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
@@ -7,10 +6,13 @@ const pool = new Pool({
   database: process.env.DB_NAME
 });
 
-const getAllItems = function(sold = false, deleted = false) {
-  return pool.query(`SELECT * from items;`)
+const getAllItems = function() {
+  return pool
+  .query(`
+  SELECT *
+  FROM items
+  Where is_sold IS false AND is_deleted IS false;`)
     .then((result) => {
-      console.log(result.rows);
       if (!result.rows) {
         return null;
       }
@@ -21,5 +23,4 @@ const getAllItems = function(sold = false, deleted = false) {
       return null;
     });
 };
-getAllItems();
 exports.getAllItems = getAllItems;
