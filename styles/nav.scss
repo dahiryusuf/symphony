@@ -4,23 +4,22 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 8vh;
+  min-height: 10vh;
   background-color: color.$main-green;
-  
+
 }
 
 .logo {
-  color: color.$main-yellow;
-  letter-spacing: 3px;
-  font-size: 1.3rem;
-  margin: 0 30px 0 30px;
+  width: 250px;
+  margin-left: 30px;
 }
+
 
 .nav-links {
   display: flex;
   justify-content: space-around;
 
-  width: 80%;
+  width: 90%;
   margin-right: 30px;
 }
 
