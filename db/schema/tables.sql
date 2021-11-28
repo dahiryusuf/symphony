@@ -1,6 +1,12 @@
 -- Drop and recreate Users table (Example)
 
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS items CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
+DROP TABLE IF EXISTS favourites CASCADE;
+DROP TABLE IF EXISTS chats CASCADE;
+
+DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   first_name VARCHAR(255) NOT NULL,
@@ -15,17 +21,12 @@ CREATE TABLE items (
   name VARCHAR(255) NOT NULL,
   description text,
   image VARCHAR(255) NOT NULL,
-  price INTERGER NOT NULL,
-  admin_id INTEGER
-  is_sold boolean
-  is_deleted boolean
+  price INTEGER NOT NULL,
+  admin_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  is_sold BOOLEAN,
+  is_deleted BOOLEAN
 );
-CREATE TABLE messages (
-  id SERIAL PRIMARY KEY NOT NULL,
-  chat_id INTEGER REFERENCES chats(id) ON DELETE CASCADE,
-  time_sent NOW(),
-  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE
-);
+
 
 CREATE TABLE favourites (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -37,4 +38,11 @@ CREATE TABLE chats (
   id SERIAL PRIMARY KEY NOT NULL,
   item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE messages (
+  id SERIAL PRIMARY KEY NOT NULL,
+  chat_id INTEGER REFERENCES chats(id) ON DELETE CASCADE,
+  -- time_sent TIMESTAMP,
+  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
