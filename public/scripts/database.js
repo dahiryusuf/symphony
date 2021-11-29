@@ -25,12 +25,10 @@ const getAllItems = function() {
     });
 };
 exports.getAllItems = getAllItems;
-<<<<<<< HEAD
-=======
 
 const getAllChats = function(userID = 1) {
   return pool.query(`
-  SELECT 
+  SELECT
   items.name as item,
   items.image as image,
   items.price as price,
@@ -38,7 +36,7 @@ const getAllChats = function(userID = 1) {
   items.admin_id as seller
   FROM chats
   JOIN items ON chats.item_id = items.id;
-  
+
   `)
     .then((result) => {
       console.log(result.rows);
@@ -53,4 +51,3 @@ const getAllChats = function(userID = 1) {
     });
 };
 exports.getAllChats = getAllChats;
->>>>>>> 559eb8015ba77004ac9a483d523dac36be806e9d

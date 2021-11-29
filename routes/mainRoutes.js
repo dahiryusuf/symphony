@@ -10,7 +10,7 @@ module.exports = (db, database) => {
     Where is_sold IS false AND is_deleted IS false;`)
       .then(data => {
         const items = data.rows;
-        const templevars = { items}
+        const templevars = { items }
         res.render("mainpage",templevars)
       })
       .catch(err => {
