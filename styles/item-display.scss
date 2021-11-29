@@ -1,5 +1,6 @@
-@use 'vars' as color;.image {
+@use 'vars/vars' as color;
 
+.image {
   border: black 3px solid;
   text-align: center;
   justify-content: center;
@@ -38,9 +39,9 @@
   align-items: center;
 }
 
-// .favourite-icon {
-//   background-color: color.$main-yellow;
-// }
+.favourite-icon {
+  background-color: color.$main-yellow;
+}
 .favourite-icon:hover {
   color: color.$main-orange;
 }

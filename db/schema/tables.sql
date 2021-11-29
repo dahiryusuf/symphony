@@ -24,7 +24,8 @@ CREATE TABLE items (
   price INTEGER NOT NULL,
   admin_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   is_sold BOOLEAN,
-  is_deleted BOOLEAN
+  is_deleted BOOLEAN,
+  favourite BOOLEAN
 );
 
 
