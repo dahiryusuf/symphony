@@ -1,16 +1,13 @@
 
 const express = require('express');
 const router  = express.Router();
+const databases = require("../public/scripts/database");
 
-module.exports = (db, database) => {
   router.get("/", (req, res) => {
-    db.query(`
-    SELECT *
-    FROM items
-    Where is_sold IS false AND is_deleted IS false;`)
+    databases.getAllItems()
       .then(data => {
-        const items = data.rows;
-        const templevars = { items}
+        const items = data;
+        const templevars = { items }
         res.render("mainpage",templevars)
       })
       .catch(err => {
@@ -19,5 +16,5 @@ module.exports = (db, database) => {
           .json({ error: err.message });
       });
   });
-  return router;
-};
+module.exports = router;
+
