@@ -13,26 +13,27 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/item-display.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+<!-- Font Awesome Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/df370cadd4.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
   <%- include('partials/_nav') %>
-  <main class="container">
+  <!-- <main class="container"> -->
 
-      <form id="item-display" method="GET" action="api/items/my-item/">
+      <form class="item-display" method="GET" action="api/items/my-item/">
         <div class="image" >
           <img id="image" src="https://m.media-amazon.com/images/I/31P2TjeREkL._AC_.jpg" alt="Flute" width="100" height="100">
         </div>
         <div class="item-description">description</div>
         <div class="actions">
-          <button type="submit">Favourite</button>
+         <div class="favourite-icon"> <i class="far fa-heart"></i></div> 
           <button type="submit">Message</button>
         </div>
       </form>
-
-
-  </main>
+  <!-- </main> -->
 
 
 </body>

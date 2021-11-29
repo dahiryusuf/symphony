@@ -1,4 +1,5 @@
-.image {
+@use 'vars' as color;.image {
+
   border: black 3px solid;
   text-align: center;
   justify-content: center;
@@ -20,12 +21,26 @@
 
 .actions {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: center;
+  align-items: space-between;
+  width: 40%;
 }
 
 .image#image {
   width:auto;
   height: auto;
+}
+.item-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// .favourite-icon {
+//   background-color: color.$main-yellow;
+// }
+.favourite-icon:hover {
+  color: color.$main-orange;
 }
