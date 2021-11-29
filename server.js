@@ -15,10 +15,10 @@ const db = new Pool(dbParams);
 db.connect();
 
 //Configure cloudinary media storage
-cloudinary.config({ 
-  cloud_name: 'dtx8hllui', 
-  api_key: '835956466622922', 
-  api_secret: process.env.CLOUDINARY_SECRET 
+cloudinary.config({
+  cloud_name: 'dtx8hllui',
+  api_key: '835956466622922',
+  api_secret: process.env.CLOUDINARY_SECRET
 });
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -43,11 +43,12 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const itemsRoutes = require("./routes/items");
-
+const messagesRouter = require('./routes/messages');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/api/items", itemsRoutes(db))
+app.use("/api/items", itemsRoutes(db));
+app.use('/messages', messagesRouter);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -57,6 +58,9 @@ app.use("/api/items", itemsRoutes(db))
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
