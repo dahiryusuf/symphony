@@ -1,0 +1,96 @@
+@use 'vars/vars' as color;
+
+.card-container {
+  color: rgb(230, 228, 228);;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5vh;
+  z-index: -1;
+}
+
+.form-container {
+  background:
+  linear-gradient(275deg, rgba(255,255,255,0) 28%, rgba(48,47,47,0.6397030279503105) 47%, rgba(48,47,47,0.8477775621118012) 60%, rgba(48,47,47,0.9440508540372671) 71%),
+  url('https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 20px;
+  width: 75%;
+  height: 70vh;
+  padding: 5vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 15px 15px;
+}
+
+.form-container p {
+ font-size: 12px;
+}
+
+.form-container p a{
+ text-decoration: none;
+ color: color.$main-yellow;
+ margin-left: 4px;
+}
+.form-container p a:hover{
+text-decoration: underline;
+ }
+
+.form-container h1 {
+  margin: 2vh 0 2vh 0;
+  font-size: 2.5rem;
+}
+
+.form-container form {
+display: flex;
+flex-direction: column;
+
+}
+
+.form-el {
+  margin-top: 5vh;
+  height: 38px;
+  padding: 3px 5px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(230, 228, 228);
+
+}
+
+.register-btn {
+margin-top: 3vh;
+background-color: color.$main-green;
+color: color.$main-yellow;
+height: 50px;
+width: 200px;
+border: none;
+border-radius: 20px;
+transition: all .2s ease-in-out;
+box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 10px;
+
+}
+
+.register-btn:hover {
+transform: scale(1.1);
+cursor: pointer;
+box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
+
+  }
+
+.register-btn:active {
+ transform: scale(1);
+}
+
+.names {
+  display: flex;
+  flex-direction: row;
+}
+
+.space {
+  width: 20px;
+}
