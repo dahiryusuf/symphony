@@ -1,30 +1,26 @@
-body {
-  width: 100%;
+@use 'vars' as color;
+
+.container {
+  // width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-}
-
-#create-post {
-  width: 700px;
-  height: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: purple 3px solid;
+  box-shadow: 2px 5px 5px gray;
+  width:fit-content;
+  padding: 20px;
+  border: 1px solid color.$main-green;
+  border-radius: 5px;
 }
 
 .choose-image {
   text-align: center;
-  border: 1px solid #ccc;
+  // border: 1px red solid;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+    margin: 1rem;
 }
 
 .create-post {
@@ -39,17 +35,32 @@ body {
 
 #item-description {
   width: 500px;
-  height: 70px;
-  border: yellow 3px solid;
+  height: 200px;
+  border: color.$main-green 1px solid;
+  border-radius: 5px;
+  padding: 4px;
 }
 #item-title {
   width: 500px;
-  height: 70px;
-  border: green 3px solid;
+  height: 50px;
+  
+  border: color.$main-green 1px solid;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding: 4px;
 }
 .actions {
-  text-align: center;
-  margin: 2rem;
-
+  background-color: color.$main-green;
+  padding: 5px 10px 5px 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid color.$main-orange;
+  border-radius: 5px;
+}
+.actions:hover {
+  background-color: color.$main-orange;
+  color: black;
 }
 
