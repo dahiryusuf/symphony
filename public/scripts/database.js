@@ -9,7 +9,7 @@ const pool = new Pool({
 
 const getAllItems = function() {
   return pool
-  .query(`
+    .query(`
   SELECT *
   FROM items
   Where is_sold IS false AND is_deleted IS false;`)
@@ -33,9 +33,13 @@ const getAllChats = function(userID = 1) {
   items.image as image,
   items.price as price,
   chats.buyer_id as buyer,
-  items.admin_id as seller
+  items.admin_id as seller,
+  users.first_name as buyer_name,
+  seller_users.first_name as seller_name
   FROM chats
-  JOIN items ON chats.item_id = items.id;
+  JOIN items ON chats.item_id = items.id
+  JOIN users ON chats.buyer_id = users.id 
+  JOIN users as seller_users ON items.admin_id = seller_users.id;
 
   `)
     .then((result) => {
