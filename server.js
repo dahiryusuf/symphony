@@ -50,11 +50,13 @@ const mainRoutes = require("./routes/mainRoutes");
 app.use("/", mainRoutes(db, database));
 
 const itemsRoutes = require("./routes/items");
-
+const messagesRouter = require('./routes/messages');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/", itemsRoutes(db))
+app.use("/api/items", itemsRoutes(db));
+app.use('/messages', messagesRouter);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -64,6 +66,9 @@ app.use("/", itemsRoutes(db))
 // app.get("/", (req, res) => {
 //   res.render("mainpage");
 // });
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
