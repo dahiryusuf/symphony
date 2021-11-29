@@ -11,6 +11,7 @@ const cloudinary = require("cloudinary");
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
+const database = require("./public/scripts/database");
 const db = new Pool(dbParams);
 db.connect();
 
@@ -42,13 +43,20 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
+const mainRoutes = require("./routes/mainRoutes");
+
+// Mount all resource routes
+// Note: Feel free to replace the example routes below with your own
+
+
 const itemsRoutes = require("./routes/items");
 const messagesRouter = require('./routes/messages');
 const favouritesRoutes = require("./routes/favourites");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
+app.use("/", mainRoutes);
 app.use("/api/users", usersRoutes(db));
-app.use("/api/items", itemsRoutes(db));
+app.use("/", itemsRoutes(db))
 app.use('/messages', messagesRouter);
 app.use("/api/favourites", favouritesRoutes(db));
 // Note: mount other resources here, using the same pattern above
@@ -57,9 +65,9 @@ app.use("/api/favourites", favouritesRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// app.get("/", (req, res) => {
+//   res.render("mainpage");
+// });
 
 
 
