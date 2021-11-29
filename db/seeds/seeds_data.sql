@@ -21,7 +21,7 @@ Voice mode: Main, multi-layer for 4 voices
 'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
 5000,
 1,
-false,
+true,
 false
 );
 
