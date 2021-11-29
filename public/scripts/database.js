@@ -49,3 +49,41 @@ const getAllChats = function(userID = 1) {
     });
 };
 exports.getAllChats = getAllChats;
+
+//Post an item
+const addAnItem = function(item) {
+  return pool
+  .query(`INSERT INTO items (name, description, image, price) VALUES($1, $2, $3, $4) RETURNING *`, [item.title, item.description, item.file, item.price ])
+    .then((result) => {
+      console.log(result.rows);
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.addAnItem = addAnItem;
+
+const getAnItem = function(id) {
+  return pool
+  .query(`SELECT name, description, image, price 
+  FROM items
+  WHERE id=$1`, [id])
+    .then((result) => {
+      //console.log(result.rows);
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getAnItem = getAnItem;
+
