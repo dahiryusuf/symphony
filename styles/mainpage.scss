@@ -58,23 +58,27 @@ padding: 0;
 .info-div {
   display: flex;
   flex-direction: column;
+
 }
 
 .info-div h5 {
-  font-size: 1.6rem;
-  margin: 0;
+  font-size: 1.4rem;
+  margin-bottom: 3vh;
 }
 
 .info-div .price {
   font-size: 1.6rem;
-  margin: 0;
   color: color.$main-green;
   font-weight: 600;
+  margin-bottom: 3vh;
+}
+.description {
+  color: rgb(108, 108, 108);
 }
  
 .image {
-  width: 200px;
-  height: 200px;
+  width: 130px;
+  height: 130px;
   border-radius: 10px;
   border: 1px solid rgb(199, 199, 199);
   object-fit: cover;
@@ -88,7 +92,8 @@ padding: 0;
 }
 
 .btn {
-  margin-bottom: -7vh;
+  margin-bottom: -2vh;
+  margin-top: 2vh;
   background-color: color.$main-green;
   color: color.$main-yellow;
   height: 35px;
