@@ -8,7 +8,8 @@
   justify-content: center;
   align-items: flex-start;
   margin-top: 5vh;
-  z-index: -1;
+
+ 
 }
 
 .form-container {
@@ -25,6 +26,7 @@
   height: 70vh;
   padding: 5vh;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 15px 15px;
+
 }
 
 .form-container p {
@@ -48,6 +50,7 @@ text-decoration: underline;
 .form-container form {
 display: flex;
 flex-direction: column;
+
 
 }
 
@@ -76,7 +79,7 @@ box-shadow: rgba(0, 0, 0, 0.35) 5px 5px 10px;
 }
 
 .register-btn:hover {
-transform: scale(1.1);
+transform: scale(1.03);
 cursor: pointer;
 box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
 
