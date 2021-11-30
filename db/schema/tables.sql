@@ -44,6 +44,6 @@ CREATE TABLE chats (
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   chat_id INTEGER REFERENCES chats(id) ON DELETE CASCADE,
-  -- time_sent TIMESTAMP,
+  message TEXT,
   sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
