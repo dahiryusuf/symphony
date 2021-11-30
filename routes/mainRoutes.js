@@ -11,6 +11,7 @@ let search = 0;
       .then(data => {
         const items = data;
         const templevars = { items }
+        console.log(data);
         res.render("mainpage",templevars)
       })
       .catch(err => {
