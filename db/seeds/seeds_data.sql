@@ -82,4 +82,9 @@ VALUES (1, 1, 'Hey', 2),
 (2, 1, 'Yo', 1),
 (3, 1, 'give me a sweet deal fam', 2),
 (4, 1, 'nah', 1),
-(5, 1, ':(', 2);
+(5, 1, ':(', 2),
+(6, 1, 'ill trade my ps3', 1),
+(7, 1, 'great condition!', 1),
+(8, 1, 'sir plz', 2),
+(9, 1, 'this is a music site', 2),
+(10, 1, '>:(', 1);
