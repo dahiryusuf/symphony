@@ -60,10 +60,11 @@ const registerRoutes = require("./routes/register");
 // Note: Feel free to replace the example routes below with your own
 app.use("/", mainRoutes);
 app.use("/api/users", usersRoutes(db));
+app.use("/api/items", itemsRoutes(db));
 app.use('/', messagesRouter);
 app.use('/', registerRoutes);
-app.use("/", itemsRoutes(db));
 app.use("/", loginRoutes);
+
 app.use("/api/favourites", favouritesRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
