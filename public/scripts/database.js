@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const { Pool } = require('pg');
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -27,9 +28,10 @@ const getAllItems = function() {
 };
 exports.getAllItems = getAllItems;
 
-const getAllChats = function(userID = 1) {
+const getAllChats = function(userID) {
   return pool.query(`
   SELECT
+  chats.id as chat_id,
   items.name as item,
   items.image as image,
   items.price as price,
@@ -40,7 +42,8 @@ const getAllChats = function(userID = 1) {
   FROM chats
   JOIN items ON chats.item_id = items.id
   JOIN users ON chats.buyer_id = users.id
-  JOIN users as seller_users ON items.admin_id = seller_users.id;
+  JOIN users as seller_users ON items.admin_id = seller_users.id
+  WHERE chats.buyer_id = ${userID} OR items.admin_id = ${userID};
 
   `)
     .then((result) => {
@@ -57,12 +60,63 @@ const getAllChats = function(userID = 1) {
 };
 exports.getAllChats = getAllChats;
 
+const getChatInfo = function(chatID) {
+  return pool.query(`
+  SELECT
+  chats.id as chat_id,
+  items.name as item,
+  items.image as image,
+  items.price as price,
+  chats.buyer_id as buyer,
+  items.admin_id as seller,
+  users.first_name as buyer_name,
+  seller_users.first_name as seller_name
+  FROM chats
+  JOIN items ON chats.item_id = items.id
+  JOIN users ON chats.buyer_id = users.id
+  JOIN users as seller_users ON items.admin_id = seller_users.id
+  WHERE chats.id = ${chatID};
+
+  `)
+    .then((result) => {
+      console.log(result.rows);
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getChatInfo = getChatInfo;
+
+const getAllMessages = function(chatID) {
+  return pool.query(`
+  Select * from messages
+  Where chat_id = ${chatID}
+  ORDER BY id
+  `)
+    .then((result) => {
+      console.log(result.rows);
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getAllMessages = getAllMessages;
+
 //Post an item
 const addAnItem = function(item) {
   return pool
-    .query(`INSERT INTO items (name, description, image, price) VALUES($1, $2, $3, $4) RETURNING *`, [item.title, item.description, item.file, item.price])
+    .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [item.title, item.description, item.file, item.price,false,false ])
     .then((result) => {
-      console.log(result.rows);
       if (!result.rows) {
         return null;
       }
@@ -101,7 +155,7 @@ const getFavorites = function(userId) {
     SELECT *
     FROM favourites
     Join items On items.id = item_id
-    Where user_id = ${userId};`)
+    Where user_id = $1;` [userId])
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -114,3 +168,22 @@ const getFavorites = function(userId) {
     });
 };
 exports.getFavorites = getFavorites;
+
+const getsearchItems = function(term) {
+  return pool
+    .query(`SELECT name, description, image, price
+  FROM items
+  WHERE name is like $1`, [term])
+    .then((result) => {
+      //console.log(result.rows);
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getsearchItems = getsearchItems;

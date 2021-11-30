@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Your Messages</title>
   <!-- Meta -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,15 +24,20 @@
 <body>
   <%- include('partials/_nav') %>
   <% for (let chat of chats) { %>
-    <div class="chat">
+    <a href="/messages/<%= chat.chat_id %>">
+      <div class="chat">
 
         <img class="item-img" src="<%= chat.image %>" alt="">
     
       <div class="chat-info">
-        <p>Bob · <%= chat.item %> · $<%= chat.price %></p>
+        <p><%= userID === chat.seller ? chat.buyer_name : chat.seller_name %>  · 
+          
+          <%= chat.item %> · $<%= chat.price %></p>
       </div>
       
     </div>
+    </a>
+
     
 
   <% }; %>

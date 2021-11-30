@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Links -->
+  <link rel="shortcut icon" type="image/jpg" href="https://i.imgur.com/Ex2x6gt.png"/>
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
@@ -19,7 +20,7 @@
   <script type="text/javascript" src="/scripts/navAnimation.js"></script>
 
 
-<title>Symphony</title>
+<title>Symphony - Listings</title>
 </head>
 <body>
   <%- include('partials/_nav') %>
@@ -27,11 +28,12 @@
   <h1>Listings</h1>
 
   <ul class="items-container">
+    <form method = "POST" action = "/">
     <div class="search">
       <button class="search-btn" type="button">Search</button>
-      <input type="search" id="form1" />
-
+      <input name = "search" type="search" id="form1" />
     </div>
+    </form>
     <% for (let i of items){%>
           <li class="card-conatiner">
             <img class="image" src="<%=i.image%>" alt="">

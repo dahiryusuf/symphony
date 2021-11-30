@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Your Messages</title>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- Links -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/conversation.css" type="text/css" />
+  
+  <!-- Scripts -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/navAnimation.js"></script>
+  <script src="https://kit.fontawesome.com/2331eaaccf.js" crossorigin="anonymous"></script>
+  
+</head>
+
+<body>
+  <%- include('partials/_nav') %>
+<div class="chat-container">
+  <div class="chat-info">
+  <div class="back-container">
+    <a href="/messages">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    
+  </div>
+      
+ 
+    
+   
+    <p><%= userID === chat.seller ? chat.buyer_name : chat.seller_name %>  · 
+      <%= chat.item %></p>
+    <div class="contact">
+      <a href="mailto:insertemailhere@xyz.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="tel:123-456-7890">
+        <i class="fas fa-phone"></i>
+      </a>
+        
+    </div>
+
+  </div>
+  <div class="messages-container">
+      <% for(message of messages) { %>
+        <div class="message">
+          <p
+          <%= userID === message.sender_id ? 'id=my-message' : '' %>
+          ><%= message.message %>
+        </p>
+        </div>
+        
+      <% } %>
+ 
+
+  </div>
+
+
+    <form class="input-container" action="">
+      <textarea></textarea>
+      <button class="send-button">Send</button>
+    </form>
+
+
+</div>
+
+</body>
+
+</html>
