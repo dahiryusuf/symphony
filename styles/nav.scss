@@ -6,6 +6,9 @@ nav {
   align-items: center;
   min-height: 10vh;
   background-color: color.$main-green;
+  z-index: 3;
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 5px;
+
 
 }
 
@@ -31,6 +34,13 @@ nav {
   text-decoration: none;
   letter-spacing: 2px;
   font-size: 1rem;
+  transform: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: rgb(233, 233, 233);
+  transform: scale(1.1)
+
 }
 
 .burger div{
@@ -54,7 +64,7 @@ nav {
    position: absolute;
    right: 0px;
    height: 95vh;
-   top: 7vh;
+   top: 10vh;
    background-color: color.$main-green;
    margin: 0;
    display: flex;
@@ -63,6 +73,7 @@ nav {
   width: 60%;
   transform: translateX(100%);
   transition: transform 0.5s ease-in;
+  z-index: 3;
  }
  .nav-links li {
    opacity: 0;
