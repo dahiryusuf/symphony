@@ -59,6 +59,7 @@ app.use("/", mainRoutes);
 app.use("/api/users", usersRoutes(db));
 app.use('/', messagesRouter);
 app.use("/", itemsRoutes(db));
+app.use("/", loginRoutes);
 app.use("/api/favourites", favouritesRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
