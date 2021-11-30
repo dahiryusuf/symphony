@@ -6,6 +6,7 @@ nav {
   align-items: center;
   min-height: 10vh;
   background-color: color.$main-green;
+  z-index: 1;
 
 }
 
@@ -31,6 +32,13 @@ nav {
   text-decoration: none;
   letter-spacing: 2px;
   font-size: 1rem;
+  transform: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: rgb(233, 233, 233);
+  transform: scale(1.1)
+
 }
 
 .burger div{

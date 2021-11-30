@@ -1,4 +1,3 @@
-const { Template } = require('ejs');
 const express = require('express');
 const router  = express.Router();
 const { getAllChats } = require('../public/scripts/database');
