@@ -15,12 +15,14 @@
 }
 
 .choose-image {
-  text-align: center;
+  // text-align: center;
   // border: 1px red solid;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
     margin: 1rem;
+    width: 80%;
+    height: 40px;
 }
 
 .create-post {
@@ -39,6 +41,7 @@
   border: color.$main-green 1px solid;
   border-radius: 5px;
   padding: 4px;
+  padding: 6px 12px;
 }
 #item-title {
   width: 500px;
@@ -48,6 +51,7 @@
   margin-bottom: 1rem;
   border-radius: 5px;
   padding: 4px;
+  padding: 6px 12px;
 }
 .actions {
   background-color: color.$main-green;
@@ -64,7 +68,8 @@
   color: black;
 }
 
-// #price1 {
-//   margin-top: 2rem;
-//   border: 2px solid black;
-// }
+#price1 {
+  margin-top: 1rem;
+  height: 40px;
+  padding: 6px 12px;
+}
