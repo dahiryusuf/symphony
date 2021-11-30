@@ -1,13 +1,14 @@
 const express = require('express');
 const router  = express.Router();
 const databases = require("../public/scripts/database");
+const cookieParser = require('cookie-parser');
+router.use(cookieParser());
 
-
-  router.get("/login", (req, res) => {
-    res.render("loginpage");
-  });
-  router.post("/login", (req, res) => {
-    res.cookie('User', req.body.username)
-    res.redirect("/")
-  });
+router.get("/login", (req, res) => {
+  res.render("loginpage");
+});
+router.post("/login", (req, res) => {
+  res.cookie('User', req.body.username);
+  res.redirect("/");
+});
 module.exports = router;
