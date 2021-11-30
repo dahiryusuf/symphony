@@ -59,9 +59,8 @@ exports.getAllChats = getAllChats;
 //Post an item
 const addAnItem = function(item) {
   return pool
-    .query(`INSERT INTO items (name, description, image, price) VALUES($1, $2, $3, $4) RETURNING *`, [item.title, item.description, item.file, item.price ])
+    .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [item.title, item.description, item.file, item.price,false,false ])
     .then((result) => {
-      console.log(result.rows);
       if (!result.rows) {
         return null;
       }
@@ -100,7 +99,7 @@ const getFavorites = function(userId) {
     SELECT *
     FROM favourites
     Join items On items.id = item_id
-    Where user_id = ${userId};`)
+    Where user_id = $1;` [userId])
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -113,3 +112,22 @@ const getFavorites = function(userId) {
     });
 };
 exports.getFavorites = getFavorites;
+
+const getsearchItems = function(term) {
+  return pool
+    .query(`SELECT name, description, image, price
+  FROM items
+  WHERE name is like $1`, [term])
+    .then((result) => {
+      //console.log(result.rows);
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getsearchItems = getsearchItems;
