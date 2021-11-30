@@ -8,6 +8,7 @@ const databases = require("../public/scripts/database");
       .then(data => {
         const items = data;
         const templevars = { items }
+        console.log(data);
         res.render("mainpage",templevars)
       })
       .catch(err => {

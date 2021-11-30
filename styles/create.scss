@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.choose-image {
+  text-align: center;
+  border: 1px red solid;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.create-post {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  font-size: 50px;
+}
+
+#item-description {
+  width: 500px;
+  height: 200px;
+  border: yellow 3px solid;
+}
+#item-title {
+  width: 500px;
+  height: 60px;
+  border: green 3px solid;
+  margin-bottom: 1rem;
+}
+#submit {
+  background-color: red;
+  
+}
+.actions:hover {
+  background-color: yellow;
+  color: blue;
+}

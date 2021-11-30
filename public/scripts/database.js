@@ -17,6 +17,7 @@ const getAllItems = function() {
       if (!result.rows) {
         return null;
       }
+      console.log(result.rows);
       return result.rows;
     })
     .catch((err) => {
@@ -59,7 +60,7 @@ exports.getAllChats = getAllChats;
 //Post an item
 const addAnItem = function(item) {
   return pool
-    .query(`INSERT INTO items (name, description, image, price) VALUES($1, $2, $3, $4) RETURNING *`, [item.title, item.description, item.file, item.price ])
+    .query(`INSERT INTO items (name, description, image, price) VALUES($1, $2, $3, $4) RETURNING *`, [item.title, item.description, item.file, item.price])
     .then((result) => {
       console.log(result.rows);
       if (!result.rows) {
