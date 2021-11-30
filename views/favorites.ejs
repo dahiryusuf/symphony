@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/mainpage.css" type="text/css" />
+
+  <!-- Scripts -->
+  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/navAnimation.js"></script>
+
+
+<title>Symphony</title>
+</head>
+<body>
+  <%- include('partials/_nav') %>
+  <div class="page-container">
+  <h1 class="display-4">Favourites</h1>
+
+  <ul class="items-container">
+    <div class="search">
+      <button class="search-btn" type="button">Search</button>
+      <input type="search" id="form1" />
+
+    </div>
+    <% for (let i of items){%>
+          <li class="card-conatiner">
+            <img class="image" src="<%=i.image%>" alt="">
+            <div class="info-div">
+              <div class="name-price">
+                <h5 ><%=i.name%></h5>
+                <p class="price" >$<%=i.price%></p>
+              </div>
+
+              <p class="description" ><%=i.description%></p>
+
+             <button class="btn" type="button">Favourite</button>
+            </div>
+          </li>
+    <% }%>
+  </ul>
+  </div>
+
+</body>
+
+</html>

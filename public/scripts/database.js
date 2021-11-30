@@ -94,3 +94,22 @@ const getAnItem = function(id) {
 exports.getAnItem = getAnItem;
 
 
+const getFavorites = function(userId) {
+  return pool
+    .query(`
+    SELECT *
+    FROM favourites
+    Join items On items.id = item_id
+    Where user_id = ${userId};`)
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getFavorites = getFavorites;

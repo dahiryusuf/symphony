@@ -69,8 +69,8 @@ false
 
 INSERT INTO favourites (item_id, user_id)
 VALUES (1, 1),
-(2, 2),
-(3, 3);
+(2, 1),
+(3, 2);
 
 INSERT INTO chats (item_id, buyer_id )
 VALUES (1, 1),
