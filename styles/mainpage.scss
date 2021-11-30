@@ -52,6 +52,7 @@ padding: 0;
   margin-bottom: 3vh;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 
@@ -133,7 +134,7 @@ padding: 0;
   letter-spacing: 1px;
   }
     
-  @media all and (max-width: 840px) {
+  @media all and (max-width: 500px) {
 
     .items-container {
       width: 100%;

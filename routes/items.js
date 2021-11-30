@@ -1,19 +1,21 @@
 const express = require('express');
 const router  = express.Router();
-const {addAnItem} = require('../public/scripts/database')
-const {getAnItem} = require('../public/scripts/database')
+const {addAnItem} = require('../public/scripts/database');
+const {getAnItem} = require('../public/scripts/database');
+const { getAllChats } = require('../public/scripts/database');
 
 module.exports = (db) => {
   router.get("/post", (req, res) => {
+    //console.log("HERE")
     res.render("create-post");
   });
 
   router.post("/post", async (req, res) => {
-    //console.log(req.body);
+    console.log(req.body);
     let item = {
       title: req.body.title, 
       description: req.body.description, 
-      file: req.body.file,
+      file: req.body.image,
       price: req.body.price
     }
     let result = await addAnItem(item)
@@ -31,6 +33,11 @@ module.exports = (db) => {
     //console.log(result);
     res.render("item-display", result1);
   });
+
+  router.get("/messages/", (req, res) => {
+    res.render("messages");
+  });
+  
 
   router.get("/", (req, res) => {
     // db.query(`SELECT * FROM users;`)
