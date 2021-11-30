@@ -6,10 +6,7 @@ const pool = new Pool({
   host: process.env.DB_HOST,
   database: process.env.DB_NAME
 });
-pool.connect(() => {
-  console.log("connected");
 
-})
 const getAllItems = function() {
   return pool
     .query(`
@@ -41,7 +38,7 @@ const getAllChats = function(userID = 1) {
   seller_users.first_name as seller_name
   FROM chats
   JOIN items ON chats.item_id = items.id
-  JOIN users ON chats.buyer_id = users.id 
+  JOIN users ON chats.buyer_id = users.id
   JOIN users as seller_users ON items.admin_id = seller_users.id;
 
   `)
@@ -79,7 +76,7 @@ exports.addAnItem = addAnItem;
 
 const getAnItem = function(id) {
   return pool
-    .query(`SELECT name, description, image, price 
+    .query(`SELECT name, description, image, price
   FROM items
   WHERE id=$1`, [id])
     .then((result) => {

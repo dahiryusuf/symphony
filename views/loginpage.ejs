@@ -9,7 +9,6 @@
 
 	<title>Login Page</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="/scripts/login.js"></script>
   <link rel="stylesheet" href="/styles/loginpage.css" type="text/css" />
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -29,12 +28,12 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-center form_container">
-					<form>
+					<form method = "post" action = "./login">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input id = "logininput" type="text" name="" class="form-control input_user" value="" placeholder="username">
+							<input id = "logininput" type="text" name="username" class="form-control input_user" value="" placeholder="username">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
@@ -49,7 +48,7 @@
 							</div>
 						</div>
 							<div class="d-flex justify-content-center mt-3 login_container">
-				 	<button id = "loginbutton" type="button" name="button" class="btn login_btn">Login</button>
+				 	<button id = "loginbutton" type="submit" name="button" class="btn login_btn">Login</button>
 				   </div>
 					</form>
 				</div>
