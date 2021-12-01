@@ -12,7 +12,8 @@ let filterTerm = "";
       databases.getsearchItems(searchTerm)
       .then(data => {
         const items = data;
-        const templevars = { items }
+        const userID = Number(req.cookies.User);
+        const templevars = { items, userID }
         res.render("mainpage",templevars)
       })
       .catch(err => {
@@ -25,8 +26,10 @@ let filterTerm = "";
     if(search === 2){
       databases.getFilterItems(filterTerm)
       .then(data => {
+        console.log("data is" , data);
         const items = data;
-        const templevars = { items }
+        const userID = Number(req.cookies.User);
+        const templevars = { items, userID }
         res.render("mainpage",templevars)
       })
       .catch(err => {
@@ -40,7 +43,8 @@ let filterTerm = "";
       databases.getAllItems()
       .then(data => {
         const items = data;
-        const templevars = { items }
+        const userID = Number(req.cookies.User);
+        const templevars = { items, userID }
         res.render("mainpage",templevars)
       })
       .catch(err => {

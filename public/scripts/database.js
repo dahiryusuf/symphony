@@ -206,8 +206,17 @@ const getFilterItems = function(filter) {
     FROM items
     Where is_sold IS false AND is_deleted IS false
     Order by price ${filter};`)
-
-}
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
 exports.getFilterItems = getFilterItems;
 
 const addToFavourites = function(item) {
@@ -225,3 +234,21 @@ const addToFavourites = function(item) {
     });
 };
 exports.addToFavourites = addToFavourites;
+
+const getPostings = function(userId) {
+  return pool
+  .query(`  SELECT *
+  FROM items
+  Where admin_id = ${userId}`)
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getPostings = getPostings;
