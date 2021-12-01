@@ -40,7 +40,7 @@
               <button class="favourite-icon" type="submit">Favourite</button>
             </form>
             <% if (user[0].is_admin === true) { %>
-              <form class="edit" method="POST" action="/my-item/<%= result1.id %>/delete">
+              <form class="edit" method="POST" action="/delete/<%= result1.id %>">
                 <button class="edit1" type="submit">Delete</button>
               </form>
             <% }%>
