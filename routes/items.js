@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const {addAnItem} = require('../public/scripts/database');
 const {getAnItem} = require('../public/scripts/database');
+const {getUser} = require('../public/scripts/database');
 
 
 
@@ -34,8 +35,9 @@ module.exports = (db) => {
     const userID = Number(req.cookies.User);
     let result = await getAnItem(req.params.id);
     let result1 = result[0];
-    let vars = {result1, userID};
-    //console.log(result);
+    let user = await getUser(userID);
+    let vars = {result1, userID, user};
+    console.log(vars);
     res.render("item-display", vars);
   });
 
