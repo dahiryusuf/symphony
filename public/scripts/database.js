@@ -122,6 +122,30 @@ const addMessage = function(chatId, message, senderId) {
 exports.addMessage = addMessage;
 
 
+const checkChatExists = function(itemID, userID) {
+  return pool.query(`
+  SELECT chats.* FROM chats
+  JOIN items ON chats.item_id = items.id
+  WHERE chats.item_id = $1 AND (chats.buyer_id = $2 OR items.admin_id = $2)
+  `, [itemID, userID])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.checkChatExists = checkChatExists;
+
+
+const createChat = function(itemID, userID) {
+  return pool.query(`
+  INSERT INTO messages VALUES 
+  (DEFAULT, $1, $2,)
+  `, [itemID, userID])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.createChat = createChat;
+
 
 
 
