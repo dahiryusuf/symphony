@@ -4,7 +4,7 @@ const router  = express.Router();
 const databases = require("../public/scripts/database");
 
 let search = 0;
-
+let  searchTerm = 0;
   router.get("/", (req, res) => {
     if(!search){
     databases.getAllItems()
@@ -22,6 +22,7 @@ let search = 0;
     else{
         databases.getsearchItems(searchTerm)
           .then(data => {
+            console.log("check data" , data)
             const items = data;
             const templevars = { items }
             res.render("mainpage",templevars)
@@ -31,10 +32,10 @@ let search = 0;
               .status(500)
               .json({ error: err.message });
           });
+          search = 0;
     }
   });
   router.post("/", (req, res) => {
-    console.log("check its working")
     searchTerm = req.body.search;
     search = 1;
     res.redirect("/")
