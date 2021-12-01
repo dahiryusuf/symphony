@@ -114,7 +114,7 @@ exports.getAllMessages = getAllMessages;
 
 const addMessage = function(chatId, message, senderId) {
   return pool.query(`
-  INSERT INTO messages (chat_id, message, sender_ids) VALUES (${Number(chatId)}, ${message}, ${Number(senderId)})`)
+  INSERT INTO messages VALUES (DEFAULT, ${Number(chatId)}, $1, ${Number(senderId)})`,[message])
     .catch((err) => {
       console.log(err.message);
     });
