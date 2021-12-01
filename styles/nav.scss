@@ -56,6 +56,20 @@ nav {
   cursor: pointer;
 }
 
+.logout-btn {
+  background-color: color.$main-green;
+  color: color.$main-yellow;
+  border: none;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  cursor: pointer;
+  transform: all 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+  color: rgb(233, 233, 233);
+}
+
 @media all and (max-width: 800px) {
  .nav-links {
    position: absolute;

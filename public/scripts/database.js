@@ -111,6 +111,20 @@ const getAllMessages = function(chatID) {
 };
 exports.getAllMessages = getAllMessages;
 
+
+const addMessage = function(chatId, message, senderId) {
+  return pool.query(`
+  INSERT INTO messages (chat_id, message, sender_ids) VALUES (${Number(chatId)}, ${message}, ${Number(senderId)})`)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.addMessage = addMessage;
+
+
+
+
+
 //Post an item
 const addAnItem = function(item) {
   return pool

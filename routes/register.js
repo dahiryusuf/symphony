@@ -3,7 +3,9 @@ const router  = express.Router();
 
 
 router.get('/register', (req, res) => {
-  res.render('register.ejs');
+  const userID = Number(req.cookies.User);
+  const vars = {userID};
+  res.render('register.ejs', vars);
 });
 
 module.exports = router;
