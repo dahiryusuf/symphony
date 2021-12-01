@@ -35,9 +35,9 @@
             <form  method="GET" action="/api/items/messages/"> 
               <button class="message" type="submit">Message</button>
             </form>
-            <form class="favourite" meåthod="GET" action="/api/favourites/"> 
+            <form class="favourite" method="POST" action="/favourites/<%= id %>"> 
               <!-- <button type="submit" class="favourite-icon"> <i class="far fa-heart"></i></button> -->
-              <button class="favourite-icon" type="button">Favourite</button>
+              <button class="favourite-icon" type="submit">Favourite</button>
             </form>
             <div class="edit">
               <button class="edit1" type="submit">Edit</button>
