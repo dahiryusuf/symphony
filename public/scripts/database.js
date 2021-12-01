@@ -229,9 +229,9 @@ const getFilterItems = function(filter) {
     .query(`  SELECT *
     FROM items
     Where is_sold IS false AND is_deleted IS false
-    Order by price ${filter};`)
+    Order by price ${filter};`);
 
-}
+};
 exports.getFilterItems = getFilterItems;
 
 const addToFavourites = function(item) {

@@ -5,9 +5,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   min-height: 10vh;
-  background-color: color.$main-green;
+  
   z-index: 3;
-  box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 5px;
+  
 
 
 }
@@ -15,6 +15,7 @@ nav {
 .logo {
   width: 250px;
   margin-left: 30px;
+ 
 }
 
 
@@ -24,6 +25,7 @@ nav {
 
   width: 90%;
   margin-right: 30px;
+  
 }
 
 .nav-links li {
@@ -35,6 +37,8 @@ nav {
   letter-spacing: 2px;
   font-size: 1rem;
   transform: all 0.2s ease-in-out;
+  text-shadow: 2px 3px #2c2c2c;
+  
 }
 
 .nav-links a:hover {
@@ -57,7 +61,7 @@ nav {
 }
 
 .logout-btn {
-  background-color: color.$main-green;
+  background-color: transparent;
   color: color.$main-yellow;
   border: none;
   letter-spacing: 2px;
@@ -76,7 +80,7 @@ nav {
    right: 0px;
    height: 95vh;
    top: 10vh;
-   background-color: color.$main-green;
+   background-color: black;
    margin: 0;
    display: flex;
    flex-direction: column;
@@ -101,6 +105,7 @@ nav {
 
   nav {
     justify-content: space-around;
+    background-color: black
   }
 
 }
