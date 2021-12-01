@@ -5,7 +5,9 @@ const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 
 router.get("/login", (req, res) => {
-  res.render("loginpage");
+  const userID = Number(req.cookies.User);
+  const vars = {userID};
+  res.render("loginpage", vars);
 });
 router.post("/login", (req, res) => {
   res.cookie('User', req.body.username);

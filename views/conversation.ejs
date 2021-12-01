@@ -65,8 +65,8 @@
   </div>
 
 
-    <form class="input-container" action="">
-      <textarea></textarea>
+    <form class="input-container" method="POST" action="/messages/<%= chat.chat_id %>/<%= userID %>">
+      <textarea name="message"></textarea>
       <button class="send-button">Send</button>
     </form>
 

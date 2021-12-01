@@ -2,13 +2,12 @@
 const express = require('express');
 const router  = express.Router();
 const databases = require("../public/scripts/database");
-
+const cookieParser = require('cookie-parser');
+router.use(cookieParser());
 let search = 0;
 let  searchTerm = 0;
 let filterTerm = "";
   router.get("/", (req, res) => {
-    console.log("search is" ,search);
-    console.log("filter is" ,filterTerm);
     if(search === 1){
       databases.getsearchItems(searchTerm)
       .then(data => {
@@ -52,7 +51,6 @@ let filterTerm = "";
     }
   });
   router.post("/", (req, res) => {
-
     searchTerm = req.body.search;
     search = 1;
 
@@ -60,7 +58,6 @@ let filterTerm = "";
   });
   router.post("/filter", (req, res) => {
     search = 2;
-    console.log("req body ", req.body.values);
     if(req.body.values == 0){
       filterTerm = 'ASC'
     }

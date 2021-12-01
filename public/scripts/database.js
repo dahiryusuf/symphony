@@ -44,7 +44,6 @@ const getAllChats = function(userID) {
   JOIN users ON chats.buyer_id = users.id
   JOIN users as seller_users ON items.admin_id = seller_users.id
   WHERE chats.buyer_id = ${userID} OR items.admin_id = ${userID};
-
   `)
     .then((result) => {
       console.log(result.rows);
@@ -112,6 +111,20 @@ const getAllMessages = function(chatID) {
 };
 exports.getAllMessages = getAllMessages;
 
+
+const addMessage = function(chatId, message, senderId) {
+  return pool.query(`
+  INSERT INTO messages VALUES (DEFAULT, ${Number(chatId)}, $1, ${Number(senderId)})`,[message])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.addMessage = addMessage;
+
+
+
+
+
 //Post an item
 const addAnItem = function(item) {
   return pool
@@ -131,7 +144,7 @@ exports.addAnItem = addAnItem;
 
 const getAnItem = function(id) {
   return pool
-    .query(`SELECT name, description, image, price
+    .query(`SELECT id, name, description, image, price
   FROM items
   WHERE id=$1`, [id])
     .then((result) => {
@@ -193,6 +206,13 @@ const getFilterItems = function(filter) {
     FROM items
     Where is_sold IS false AND is_deleted IS false
     Order by price ${filter};`)
+
+}
+exports.getFilterItems = getFilterItems;
+
+const addToFavourites = function(item) {
+  return pool
+    .query(`INSERT INTO favourites (item_id, user_id) VALUES($1, $2) RETURNING *`, [ item.item_id, item.user_id])
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -204,4 +224,4 @@ const getFilterItems = function(filter) {
       return null;
     });
 };
-exports.getFilterItems = getFilterItems;
+exports.addToFavourites = addToFavourites;
