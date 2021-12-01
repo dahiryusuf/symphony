@@ -1,12 +1,12 @@
 @use 'vars/vars' as color;
 
 body {
+  
   width: 100%;
-    min-height: 100vh;
-  
-  
+  min-height: 100vh;
   background-color: rgb(222, 222, 222);
 }
+
 
 
 
@@ -86,7 +86,7 @@ padding: 0;
   color: rgb(108, 108, 108);
   font-size: 0.8rem;
 }
- 
+
 .image {
   width: 100px;
   height: 100px;
@@ -116,16 +116,16 @@ padding: 0;
   align-self: flex-end;
   letter-spacing: 1px;
   font-size: 0.9rem;
-  
+
   }
-  
+
   .btn:hover {
   transform: scale(1.05);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-  
+
     }
-  
+
   .btn:active {
    transform: scale(1);
 
@@ -144,12 +144,12 @@ padding: 0;
   cursor: pointer;
   letter-spacing: 1px;
   }
-    
+
   @media all and (max-width: 500px) {
 
     .items-container {
       width: 100%;
-   
+
       }
 
     .image {
@@ -194,6 +194,6 @@ padding: 0;
       border-radius: 0px;
 
       }
-     
+
   }
 

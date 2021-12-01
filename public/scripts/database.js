@@ -122,6 +122,30 @@ const addMessage = function(chatId, message, senderId) {
 exports.addMessage = addMessage;
 
 
+const checkChatExists = function(itemID, userID) {
+  return pool.query(`
+  SELECT chats.* FROM chats
+  JOIN items ON chats.item_id = items.id
+  WHERE chats.item_id = $1 AND (chats.buyer_id = $2 OR items.admin_id = $2)
+  `, [itemID, userID])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.checkChatExists = checkChatExists;
+
+
+const createChat = function(itemID, userID) {
+  return pool.query(`
+  INSERT INTO messages VALUES 
+  (DEFAULT, $1, $2,)
+  `, [itemID, userID])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.createChat = createChat;
+
 
 
 
@@ -183,13 +207,11 @@ const getFavorites = function(userId) {
 exports.getFavorites = getFavorites;
 
 const getsearchItems = function(term) {
-  console.log("term is ", term);
   return pool
     .query(`SELECT *
   FROM items
   WHERE lower(name) LIKE '%${term}%' AND is_sold IS false AND is_deleted IS false;`)
     .then((result) => {
-      //console.log(result.rows);
       if (!result.rows) {
         return null;
       }
@@ -201,6 +223,16 @@ const getsearchItems = function(term) {
     });
 };
 exports.getsearchItems = getsearchItems;
+
+const getFilterItems = function(filter) {
+  return pool
+    .query(`  SELECT *
+    FROM items
+    Where is_sold IS false AND is_deleted IS false
+    Order by price ${filter};`)
+
+}
+exports.getFilterItems = getFilterItems;
 
 const addToFavourites = function(item) {
   return pool

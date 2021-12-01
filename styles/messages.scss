@@ -11,7 +11,7 @@ a {
   padding: 1vh;
   margin: 1vh 0.5vh 1vh 0.5vh;
   transition: all 0.2s ease-in-out;
- 
+  
 }
 
 .chat:hover {
@@ -32,6 +32,9 @@ object-fit: cover;
   align-items: center;
   flex-grow: 1;
   margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+ 
 }
 
 .chat-info p {
