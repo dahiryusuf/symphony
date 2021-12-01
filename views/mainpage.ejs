@@ -28,7 +28,7 @@
 <body>
   <%- include('partials/_nav') %>
   <div class="page-container">
-  
+
 
   <ul class="items-container">
     <form method = "POST" action = "/">
@@ -36,6 +36,18 @@
       <button class="search-btn" type="submit">Search</button>
       <input name = "search" type="search" id="form1" />
     </div>
+    </form>
+    <form method = "POST" action = "/filter">
+      <div class="filter"></div>
+      Filter items:
+      <select name="values">
+        <option value="0">Price: low to high</option>
+        <option value="1">Price: high to low</option>
+      </select>
+
+      <br />
+
+      <input type="submit" title="Submit"/>
     </form>
     <p class="listings">All Listings</p>
     <% for (let i of items){%>
