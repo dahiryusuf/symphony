@@ -35,6 +35,18 @@
       <input name = "search" type="search" id="form1" />
     </div>
     </form>
+    <form method = "POST" action = "/filter">
+      <div class="filter"></div>
+      Filter items:
+      <select name="values">
+        <option value="0">Price: low to high</option>
+        <option value="1">Price: high to low</option>
+      </select>
+
+      <br />
+
+      <input type="submit" title="Submit"/>
+    </form>
     <% for (let i of items){%>
           <li class="card-conatiner">
             <img class="image" src="<%=i.image%>" alt="">

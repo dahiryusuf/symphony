@@ -5,13 +5,43 @@ const databases = require("../public/scripts/database");
 
 let search = 0;
 let  searchTerm = 0;
+let filterTerm = "";
   router.get("/", (req, res) => {
-    if(!search){
-    databases.getAllItems()
+    console.log("search is" ,search);
+    console.log("filter is" ,filterTerm);
+    if(search === 1){
+      databases.getsearchItems(searchTerm)
       .then(data => {
         const items = data;
         const templevars = { items }
-        console.log(data);
+        res.render("mainpage",templevars)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+      search = 0;
+    }
+    if(search === 2){
+      databases.getFilterItems(filterTerm)
+      .then(data => {
+        const items = data;
+        const templevars = { items }
+        res.render("mainpage",templevars)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+      search = 0;
+    }
+    else{
+      databases.getAllItems()
+      .then(data => {
+        const items = data;
+        const templevars = { items }
         res.render("mainpage",templevars)
       })
       .catch(err => {
@@ -20,25 +50,24 @@ let  searchTerm = 0;
           .json({ error: err.message });
       });
     }
-    else{
-        databases.getsearchItems(searchTerm)
-          .then(data => {
-            console.log("check data" , data)
-            const items = data;
-            const templevars = { items }
-            res.render("mainpage",templevars)
-          })
-          .catch(err => {
-            res
-              .status(500)
-              .json({ error: err.message });
-          });
-          search = 0;
-    }
   });
   router.post("/", (req, res) => {
+
     searchTerm = req.body.search;
     search = 1;
+
+    res.redirect("/")
+  });
+  router.post("/filter", (req, res) => {
+    search = 2;
+    console.log("req body ", req.body.values);
+    if(req.body.values == 0){
+      filterTerm = 'ASC'
+    }
+    else {
+      filterTerm = 'DESC'
+    }
+
     res.redirect("/")
   });
 module.exports = router;

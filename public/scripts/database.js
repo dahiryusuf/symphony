@@ -170,13 +170,11 @@ const getFavorites = function(userId) {
 exports.getFavorites = getFavorites;
 
 const getsearchItems = function(term) {
-  console.log("term is ", term)
   return pool
     .query(`SELECT *
   FROM items
   WHERE lower(name) LIKE '%${term}%' AND is_sold IS false AND is_deleted IS false;`)
     .then((result) => {
-      //console.log(result.rows);
       if (!result.rows) {
         return null;
       }
@@ -188,3 +186,22 @@ const getsearchItems = function(term) {
     });
 };
 exports.getsearchItems = getsearchItems;
+
+const getFilterItems = function(filter) {
+  return pool
+    .query(`  SELECT *
+    FROM items
+    Where is_sold IS false AND is_deleted IS false
+    Order by price ${filter};`)
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getFilterItems = getFilterItems;
