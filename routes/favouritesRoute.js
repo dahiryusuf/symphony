@@ -7,7 +7,6 @@ router.use(cookieParser());
 
 
 router.get("/favourites", (req, res) => {
-  console.log(`req.body is ${req.cookies.User}`);
   databases.getFavorites(req.cookies.User)
     .then(data => {
       const userID = Number(req.cookies.User);

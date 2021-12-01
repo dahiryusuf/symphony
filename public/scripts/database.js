@@ -95,7 +95,7 @@ const getAllMessages = function(chatID) {
   return pool.query(`
   Select * from messages
   Where chat_id = ${chatID}
-  ORDER BY id
+  ORDER BY id;
   `)
     .then((result) => {
       console.log(result.rows);
@@ -168,7 +168,7 @@ const getFavorites = function(userId) {
     SELECT *
     FROM favourites
     Join items On items.id = item_id
-    Where user_id = $1;` [userId])
+    Where user_id = ${userId};`)
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -183,10 +183,11 @@ const getFavorites = function(userId) {
 exports.getFavorites = getFavorites;
 
 const getsearchItems = function(term) {
+  console.log("term is ", term);
   return pool
-    .query(`SELECT name, description, image, price
+    .query(`SELECT *
   FROM items
-  WHERE name is like $1`, [term])
+  WHERE lower(name) LIKE '%${term}%' AND is_sold IS false AND is_deleted IS false;`)
     .then((result) => {
       //console.log(result.rows);
       if (!result.rows) {
