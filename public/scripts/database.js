@@ -131,7 +131,7 @@ exports.addAnItem = addAnItem;
 
 const getAnItem = function(id) {
   return pool
-    .query(`SELECT name, description, image, price
+    .query(`SELECT id, name, description, image, price
   FROM items
   WHERE id=$1`, [id])
     .then((result) => {
@@ -188,3 +188,19 @@ const getsearchItems = function(term) {
     });
 };
 exports.getsearchItems = getsearchItems;
+
+const addToFavourites = function(item) {
+  return pool
+    .query(`INSERT INTO favourites (item_id, user_id) VALUES($1, $2) RETURNING *`, [ item.item_id, item.user_id])
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.addToFavourites = addToFavourites;
