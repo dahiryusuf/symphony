@@ -62,7 +62,7 @@ Voice mode: Main, multi-layer for 4 voices
 122 selected voices',
 'https://sc1.musik-produktiv.com/pic-010068549xxl/pearl-export-22-smokey-chrome-inkl-sabian-sbr-beckenset.jpg',
 2500,
-1,
+2,
 false,
 false
 );

@@ -137,7 +137,7 @@ exports.checkChatExists = checkChatExists;
 
 const createChat = function(itemID, userID) {
   return pool.query(`
-  INSERT INTO messages VALUES 
+  INSERT INTO messages VALUES
   (DEFAULT, $1, $2,)
   `, [itemID, userID])
     .catch((err) => {
@@ -229,8 +229,17 @@ const getFilterItems = function(filter) {
     .query(`  SELECT *
     FROM items
     Where is_sold IS false AND is_deleted IS false
-    Order by price ${filter};`);
-
+    Order by price ${filter};`)
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
 };
 exports.getFilterItems = getFilterItems;
 
@@ -249,3 +258,54 @@ const addToFavourites = function(item) {
     });
 };
 exports.addToFavourites = addToFavourites;
+
+const getPostings = function(userId) {
+  return pool
+    .query(`  SELECT *
+  FROM items
+  Where admin_id = ${userId}`)
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getPostings = getPostings;
+
+const getUser = function(userID) {
+  return pool
+    .query(`SELECT * FROM users WHERE id = $1`, [userID])
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+
+exports.getUser = getUser;
+
+const deleteItem = function(item) {
+  return pool
+    .query(`UPDATE items SET is_deleted = true WHERE admin_id = $1 RETURNING *`, [item.id])
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.deleteItem = deleteItem;

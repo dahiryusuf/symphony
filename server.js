@@ -55,21 +55,25 @@ const itemsRoutes = require("./routes/items");
 const messagesRouter = require('./routes/messages');
 //const favouritesRoutes = require("./routes/favourites");
 const favourites = require("./routes/favouritesRoute");
+const postings = require("./routes/postings");
 const registerRoutes = require("./routes/register");
 const logoutRoutes = require("./routes/logoutRoute");
 const indexRoutes = require("./routes/indexRoutes");
+const deleteItem = require('./routes/delete');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/", mainRoutes);
 app.use("/api/users", usersRoutes(db));
-app.use("/api/items", itemsRoutes(db));
+app.use("/", itemsRoutes(db));
 app.use('/', messagesRouter);
 app.use('/', registerRoutes);
 app.use("/", loginRoutes);
 app.use("/", favourites);
 app.use("/", logoutRoutes);
 app.use("/", indexRoutes);
+app.use("/", postings);
+app.use('/', deleteItem(db));
 
 // app.use("/api/favourites", favouritesRoutes(db));
 // Note: mount other resources here, using the same pattern above
