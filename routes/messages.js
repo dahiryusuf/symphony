@@ -27,6 +27,7 @@ router.get('/messages/:id', (req, res) => {
 //display chats for user
 router.get('/messages', (req, res) => {
   getAllChats(req.cookies.User).then((chats) => {
+    console.log(chats);
     const vars = {chats, userID: req.cookies.User};
     res.render('messages.ejs', vars);
   });

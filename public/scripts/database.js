@@ -44,7 +44,6 @@ const getAllChats = function(userID) {
   JOIN users ON chats.buyer_id = users.id
   JOIN users as seller_users ON items.admin_id = seller_users.id
   WHERE chats.buyer_id = ${userID} OR items.admin_id = ${userID};
-
   `)
     .then((result) => {
       console.log(result.rows);
