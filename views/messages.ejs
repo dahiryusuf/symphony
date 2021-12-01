@@ -30,7 +30,7 @@
         <img class="item-img" src="<%= chat.image %>" alt="">
     
       <div class="chat-info">
-        <p><%= userID = chat.seller ? chat.buyer_name : chat.seller_name %>  · 
+        <p><%= userID === chat.seller ? chat.buyer_name : chat.seller_name %>  · 
           
           <%= chat.item %> · $<%= chat.price %></p>
       </div>

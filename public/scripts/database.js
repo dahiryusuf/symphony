@@ -18,6 +18,7 @@ const getAllItems = function() {
       if (!result.rows) {
         return null;
       }
+      console.log(result.rows);
       return result.rows;
     })
     .catch((err) => {
