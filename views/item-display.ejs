@@ -22,30 +22,32 @@
 
 <body>
   <%- include('partials/_nav') %>
-   
+
       <div class="item-display">
         <div class="text-box">
           <div class="top-row">
-            <h1 class="item-name"><%= name %></h1>
-            <div class="item-price">$<%= price %></div>
+            <h1 class="item-name"><%= result1.name %></h1>
+            <div class="item-price">$<%= result1.price %></div>
           </div>
-          <div class="item-description"><%= description %></div>
-          
+          <div class="item-description"><%= result1.description %></div>
+
           <div class="actions">
-            <form  method="GET" action="/api/items/messages/"> 
+            <form  method="GET" action="/api/items/messages/">
               <button class="message" type="submit">Message</button>
             </form>
-            <form class="favourite" method="POST" action="/favourites/<%= id %>"> 
+            <form class="favourite" method="POST" action="/favourites/<%= result1.id %>">
               <!-- <button type="submit" class="favourite-icon"> <i class="far fa-heart"></i></button> -->
               <button class="favourite-icon" type="submit">Favourite</button>
             </form>
-            <div class="edit">
-              <button class="edit1" type="submit">Edit</button>
-            </div>
+            <% if (user[0].is_admin === true) { %>
+              <form class="edit" method="POST" action="/delete/<%= result1.id %>">
+                <button class="edit1" type="submit">Delete</button>
+              </form>
+            <% }%>
           </div>
         </div>
         <div class="image" >
-          <img id="image" src="<%= image %>" alt="Generic placeholder image">
+          <img id="image" src="<%= result1.image %>" alt="Generic placeholder image">
         </div>
       </div>
 

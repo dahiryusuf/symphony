@@ -249,3 +249,35 @@ const addToFavourites = function(item) {
     });
 };
 exports.addToFavourites = addToFavourites;
+
+const getUser = function(userID) {
+  return pool
+  .query(`SELECT * FROM users WHERE id = $1`, [userID])
+  .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getUser = getUser;
+
+const deleteItem = function(item) {
+  return pool
+  .query(`UPDATE items SET is_deleted = true WHERE admin_id = $1 RETURNING *`, [item.id])
+  .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.deleteItem = deleteItem;
