@@ -122,6 +122,30 @@ const addMessage = function(chatId, message, senderId) {
 exports.addMessage = addMessage;
 
 
+const checkChatExists = function(itemID, userID) {
+  return pool.query(`
+  SELECT chats.* FROM chats
+  JOIN items ON chats.item_id = items.id
+  WHERE chats.item_id = $1 AND (chats.buyer_id = $2 OR items.admin_id = $2)
+  `, [itemID, userID])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.checkChatExists = checkChatExists;
+
+
+const createChat = function(itemID, userID) {
+  return pool.query(`
+  INSERT INTO messages VALUES
+  (DEFAULT, $1, $2,)
+  `, [itemID, userID])
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.createChat = createChat;
+
 
 
 
@@ -240,7 +264,23 @@ const getPostings = function(userId) {
   .query(`  SELECT *
   FROM items
   Where admin_id = ${userId}`)
-    .then((result) => {
+  .then((result) => {
+    if (!result.rows) {
+      return null;
+    }
+    return result.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+    return null;
+  });
+};
+exports.getPostings = getPostings;
+
+const getUser = function(userID) {
+  return pool
+  .query(`SELECT * FROM users WHERE id = $1`, [userID])
+  .then((result) => {
       if (!result.rows) {
         return null;
       }
@@ -251,4 +291,21 @@ const getPostings = function(userId) {
       return null;
     });
 };
-exports.getPostings = getPostings;
+
+exports.getUser = getUser;
+
+const deleteItem = function(item) {
+  return pool
+  .query(`UPDATE items SET is_deleted = true WHERE admin_id = $1 RETURNING *`, [item.id])
+  .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.deleteItem = deleteItem;
