@@ -20,7 +20,7 @@ Voice mode: Main, multi-layer for 4 voices
 122 selected voices',
 'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
 5000,
-1,
+2,
 false,
 false
 );
@@ -41,7 +41,7 @@ Voice mode: Main, multi-layer for 4 voices
 122 selected voices',
 'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
 5000,
-1,
+2,
 false,
 false
 );
@@ -62,7 +62,7 @@ Voice mode: Main, multi-layer for 4 voices
 122 selected voices',
 'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
 5000,
-1,
+2,
 false,
 false
 );
@@ -83,7 +83,7 @@ Voice mode: Main, multi-layer for 4 voices
 122 selected voices',
 'https://www.sefiles.net/merchant/5582/images/zoom/IMG_1162.jpg',
 1100,
-1,
+2,
 false,
 false
 );
@@ -104,7 +104,7 @@ Voice mode: Main, multi-layer for 4 voices
 122 selected voices',
 'https://sc1.musik-produktiv.com/pic-010068549xxl/pearl-export-22-smokey-chrome-inkl-sabian-sbr-beckenset.jpg',
 2500,
-2,
+1,
 false,
 false
 );
