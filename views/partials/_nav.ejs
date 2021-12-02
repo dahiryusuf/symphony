@@ -7,7 +7,7 @@
 <h4></h4>
 </div>
 <ul class="nav-links">
-  <li><a href="/">Home</a></li>
+  <li><a href="/listings">Listings</a></li>
   <li><a href="/items/post">Sell</a></li>
   <li><a href="/favourites">Favourites</a></li>
   <li><a href="/messages">Messages</a></li>
@@ -16,9 +16,9 @@
   <li><a href="/register">Register</a></li>
   <% } else { %>
     <li>
-      <form action="/logout" method="POST">
-        <button class="logout-btn" >Log Out</button>
+      <form class="logout-form" id='logout' action="/logout" method="POST">
       </form>
+      <button form='logout' class="logout-btn" >Log Out</button>
     </li>
   <% } %>
 

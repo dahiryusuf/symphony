@@ -21,7 +21,49 @@ Voice mode: Main, multi-layer for 4 voices
 'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
 5000,
 1,
-true,
+false,
+false
+);
+
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
+'Steinberg Piano',
+'Black. Attractive cabinet with polished wood and grand styling
+88 key graded hammer action velocity sensitive
+128-note polyphony with sound effects engaged.
+Voice mode: Main, multi-layer for 4 voices
+122 selected voices',
+'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
+5000,
+1,
+false,
+false
+);
+
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
+'Steinberg Piano',
+'Black. Attractive cabinet with polished wood and grand styling
+88 key graded hammer action velocity sensitive
+128-note polyphony with sound effects engaged.
+Voice mode: Main, multi-layer for 4 voices
+122 selected voices',
+'https://m.media-amazon.com/images/I/61GrJRwTWVS._AC_SL1200_.jpg',
+5000,
+1,
+false,
 false
 );
 
