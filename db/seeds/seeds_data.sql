@@ -108,6 +108,41 @@ Voice mode: Main, multi-layer for 4 voices
 false,
 false
 );
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
+'Acoustic Guitar',
+'Suitable for beginners: As an acoustic guitar designed for beginners, it is easy to use and play. The 38-inch guitar is very suitable for use in classes, recitals, band rehearsals, stage performances or practice at home. High-quality material: This acoustic guitar includes 6 strings. The strings of these guitars are made of high-quality metal, with good sound quality and stable pitch. ',
+'https://images.squarespace-cdn.com/content/v1/5b7d8ac7697a988b951bdc95/1611728210677-016BGGS79ZRHB96CKQS3/image-9.jpg?format=2500w',
+1000,
+2,
+false,
+false
+);
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
+'Triumph Flute',
+'Advanced SplIt E mechanism design for a easy play high E even a beginner
+Advanced OFFSET line design for a comfortable and easy playing for beginner or student
+Advanced flute mouthpiece embouchure design for easy play for student and beginner
+Durable lightweight flute case protects flute against the physical damage.',
+'https://media.istockphoto.com/photos/silver-flute-with-path-picture-id172142833?k=20&m=172142833&s=612x612&w=0&h=8k3h43N84O9dDz-uQRtjCs6sgEdLV_CihalDufDuIZc=',
+800,
+1,
+false,
+false
+);
 
 INSERT INTO favourites (item_id, user_id)
 VALUES (1, 1),
