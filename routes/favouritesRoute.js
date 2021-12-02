@@ -22,18 +22,18 @@ router.get("/favourites", (req, res) => {
     });
     
 });
-  router.post("/favourites/:id", async (req, res) => {
-    console.log(req.params);
-    console.log(req.body);
-    console.log(req.cookies.User);
-    let item = {
-      item_id: req.params.id,
-      user_id: req.cookies.User
-    }
-    let result = await addToFavourites(item);
-    res.redirect("/favourites");
+router.post("/favourites/:id", async(req, res) => {
+  console.log(req.params);
+  console.log(req.body);
+  console.log(req.cookies.User);
+  let item = {
+    item_id: req.params.id,
+    user_id: req.cookies.User
+  };
+  let result = await addToFavourites(item);
+  res.redirect("/favourites");
 
 
-  });
+});
 module.exports = router;
 
