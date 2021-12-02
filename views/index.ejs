@@ -49,63 +49,34 @@
   <div>
     <p>Most Popular</p>
     <h3>For Sale</h3>
-<<<<<<< HEAD
-    <a href="/listings">Browse Instruments
-      <i class="fas fa-long-arrow-alt-right"></i>
-    </a>
-    <ul class="cards">
-      <% for (let i of items){%>
-
-      <li class="card">
-        <img class="card-img" src="<%=i.image%>" alt="">
-
-        <div class="card-content">
-          <div class="price">
-            <i class="fas fa-money-bill-wave"></i>
-            <p >$<%=i.price%></p>
-          </div>
-
-          <h5 ><%=i.name%></h5>
-        </div>
-
-      </li>
-
-      <% }%>
-    </ul>
-
-  </div>
-  </div>
-
-=======
   </div>
   <a href="/listings">Browse Instruments
     <i class="fas fa-long-arrow-alt-right"></i>
   </a>
->>>>>>> ddcbd73273ec4179d84c0f10afd2b47bd34201c9
 </section>
-  
+
 
       <ul class="cards">
- 
+
         <% for (let i of items){%>
           <a class="card-link" href="/items/my-item/<%= i.id %>">
             <li class="card">
               <img class="card-img" src="<%=i.image%>" alt="">
-        
+
               <div class="card-content">
                 <div class="price">
                   <i class="fas fa-money-bill-wave"></i>
                   <p >$<%=i.price%></p>
                 </div>
-        
+
                 <h5 ><%=i.name%></h5>
               </div>
-        
+
             </li>
           </a>
-  
+
         <% }%>
-  
+
 
       </ul>
 
