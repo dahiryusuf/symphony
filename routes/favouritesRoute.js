@@ -20,7 +20,7 @@ router.get("/favourites", (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-    
+
 });
 router.post("/favourites/:id", async(req, res) => {
   console.log(req.params);
@@ -31,7 +31,7 @@ router.post("/favourites/:id", async(req, res) => {
     user_id: req.cookies.User
   };
   let result = await addToFavourites(item);
-  res.redirect("/favourites");
+  res.redirect("/listings");
 
 
 });
