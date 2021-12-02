@@ -296,7 +296,7 @@ exports.getUser = getUser;
 
 const deleteItem = function(item) {
   return pool
-  .query(`UPDATE items SET is_deleted = true WHERE admin_id = $1 RETURNING *`, [item.id])
+  .query(`UPDATE items SET is_deleted = true WHERE id = $1 RETURNING *`, [item.id])
   .then((result) => {
       if (!result.rows) {
         return null;
