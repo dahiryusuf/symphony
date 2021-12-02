@@ -1,16 +1,15 @@
 @use 'vars/vars' as color;
-body {
-  overflow-y: hidden;
-}
+
+
 .chat-container {
   height: 90vh;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 10fr 1fr;
+  
   
 }
 .chat-info {
- flex-grow: 2;
  background: rgb(255,255,255);
  background: radial-gradient(circle, rgba(255,255,255,0.46262254901960786) 30%, rgba(162,162,162,0.30575980392156865) 100%);
  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -43,7 +42,7 @@ body {
 
 i {
   transform: scale(1.6);
-  color: color.$main-green;
+  color: black;
   cursor: pointer;
   
 }
@@ -56,7 +55,7 @@ i {
 
 
 .messages-container {
- flex-grow: 14;
+
  background: rgb(228, 228, 228);
  padding: 20px;
  overflow-y: scroll;
@@ -83,7 +82,7 @@ i {
 }
 
 #my-message {
-  background-color: color.$main-green;
+  background-color: black;
   color: rgb(225, 225, 225);
   margin-left: auto;
 }
@@ -91,7 +90,7 @@ i {
 
 
 .input-container {
-flex: 4;
+
 z-index: 1;
 background: radial-gradient(circle, rgba(255,255,255,0.46262254901960786) 30%, rgba(162,162,162,0.30575980392156865) 100%);
 box-shadow: rgba(52, 52, 52, 0.2) 0px 2px 5px 5px;
@@ -117,7 +116,7 @@ textarea {
     margin: 0;
     border-radius: 5px;
  
-    background-color: color.$main-green;
+    background-color: black;
     color: color.$main-yellow;
     height: 79%;
     width: 20%;

@@ -78,6 +78,7 @@ const getAllChats = function(userID) {
 };
 exports.getAllChats = getAllChats;
 
+
 const getChatInfo = function(chatID) {
   return pool.query(`
   SELECT
@@ -156,8 +157,8 @@ exports.checkChatExists = checkChatExists;
 
 const createChat = function(itemID, userID) {
   return pool.query(`
-  INSERT INTO messages VALUES
-  (DEFAULT, $1, $2,)
+  INSERT INTO chats VALUES
+  (DEFAULT, $1, $2) RETURNING *
   `, [itemID, userID])
     .catch((err) => {
       console.log(err.message);
