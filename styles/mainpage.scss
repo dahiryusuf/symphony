@@ -155,4 +155,40 @@ body {
   transform: scale(0.9);
 }
 
+.filter-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5vh;
+}
 
+.select {
+  padding: 0.7vh 1vw;
+  outline: none;
+  border: 1px solid rgb(165, 165, 165);
+  background-color: white;
+  cursor: pointer;
+  
+}
+.select:hover {
+  padding: 0.7vh 1vw;
+  outline: none;
+  border: 1px solid rgb(165, 165, 165);
+  background-color: rgb(231, 231, 231);
+  cursor: pointer;
+  
+}
+
+
+.filter-btn {
+  border-radius: 5px;
+  background-color: black;
+  color: color.$main-yellow;
+  height: 38px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+
+
+}

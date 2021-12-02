@@ -40,21 +40,28 @@
     </div>
   </form>
 
-    <form method = "POST" action = "/filter">
-    <div class="filter">
-      <p>Sort by</p>
-      <select name="values">
-        <option value="0">Price: low to high</option>
-        <option value="1">Price: high to low</option>
-      </select>
-      <input type="submit" title="Submit"/>
-    </div>
-  </form>
 
-  <div class="listings">
-    <i class="fas fa-store"></i>
-    <p>All Listings</p>
-  </div>
+
+    <div class="filter-box">
+      <div class="listings">
+        <i class="fas fa-store"></i>
+        <p>All Listings</p>
+      </div>
+
+      <form method = "POST" action = "/filter">
+        <div class="filter">
+          <select class="select" name="values">
+            <option disabled selected value="0">Filters</option>
+            <option value="0">Price: low to high</option>
+            <option value="1">Price: high to low</option>
+          </select>
+          <button class="filter-btn" type="submit" title="Submit">Go</button>
+        </div>
+      </form>
+
+
+    </div>
+
 
 
   <ul class="cards">
