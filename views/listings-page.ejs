@@ -32,8 +32,11 @@
  <div class="content">
   <form method = "POST" action = "/">
     <div class="search">
-      <button class="search-btn" type="submit">Search</button>
-      <input name = "search" type="search" id="form1" />
+      <button class="search-btn" type="submit">
+        
+        Search
+      </button>
+      <input placeholder="What are you searching for..." name="search" type="search" id="form1" />
     </div>
   </form>
 
@@ -75,7 +78,7 @@
             <i class="far fa-comment-alt"></i>
           </button>
         </form>
-        <form method="POST" action="/messages/<%= i.id %>" >
+        <form method="POST" action="/favourites/<%= i.id %>" >
         <button class="btn-mini" type="submit">
         <i class="far fa-heart"></i>
         </button>
@@ -83,8 +86,6 @@
       </div>
     </li>
   </a>
-   
-    
     <% }%>
   </ul>
 

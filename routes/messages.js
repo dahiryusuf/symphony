@@ -18,11 +18,15 @@ router.post('/chat/create/:itemID', (req, res) => {
   const userID = Number(req.cookies.User);
   const itemID = Number(req.params.itemID);
   checkChatExists(itemID, userID).then((results) => {
-    let chatID = results.rows[0].id;
-    if (!chatID) {
-      createChat(itemID, userID);
-      res.redirect(`/messages/${chatID}`);
+    if (results.rows.length === 0) {
+      createChat(itemID, userID).then((results) => {
+        console.log(results);
+        let chatID = results.rows[0].id;
+        res.redirect(`/messages/${chatID}`);
+      });
+
     } else {
+      let chatID = results.rows[0].id;
       res.redirect(`/messages/${chatID}`);
     }
    

@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/index.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/mainpage.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +32,7 @@
   <div class="img">
     <h1 >Find an instrument.</h1>
 
-    <form method="POST" action="/">
+    <form class="input-form" method="POST" action="/">
       <div class="input">
         <p>What:</p>
         <input name = "search" placeholder="Type your search term..." type="text">
@@ -45,41 +44,41 @@
     </form>
   </div>
 </header>
+
 <section class="browse-ctn">
   <div>
     <p>Most Popular</p>
     <h3>For Sale</h3>
-    <ul class="cards">
-      <% for (let i of items){%>
-
-      <li class="card">
-        <img class="card-img" src="<%=i.image%>" alt="">
-
-        <div class="card-content">
-          <div class="price">
-            <i class="fas fa-money-bill-wave"></i>
-            <p >$<%=i.price%></p>
-          </div>
-
-          <h5 ><%=i.name%></h5>
-        </div>
-
-      </li>
-
-      <% }%>
-    </ul>
-
   </div>
-  </div>
-  <a href="">Browse Instruments
+  <a href="/listings">Browse Instruments
     <i class="fas fa-long-arrow-alt-right"></i>
   </a>
 </section>
+  
 
+      <ul class="cards">
+ 
+        <% for (let i of items){%>
+          <a class="card-link" href="/items/my-item/<%= i.id %>">
+            <li class="card">
+              <img class="card-img" src="<%=i.image%>" alt="">
+        
+              <div class="card-content">
+                <div class="price">
+                  <i class="fas fa-money-bill-wave"></i>
+                  <p >$<%=i.price%></p>
+                </div>
+        
+                <h5 ><%=i.name%></h5>
+              </div>
+        
+            </li>
+          </a>
+  
+        <% }%>
+  
 
-
-
-
+      </ul>
 
 
 
