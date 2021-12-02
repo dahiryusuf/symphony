@@ -35,7 +35,7 @@ body {
   letter-spacing: 1px;
   font-size: 0.9rem;
   margin: 0.2rem;
-  
+
 }
 .text-box {
   @include flexColumn();
@@ -67,7 +67,9 @@ body {
   font-size: 1rem;
   @include flexRow();
   align-items: center;
-  
+  height: fit-content;
+  padding: 10px 0 10px 0;
+
 
 
 }
@@ -82,9 +84,9 @@ body {
   transform: scale(1.05);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-  
+
     }
-  
+
   .edit1:active {
    transform: scale(1);
 
@@ -139,9 +141,9 @@ body {
   transform: scale(1.05);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-  
+
     }
-  
+
   .favourite-icon:active {
    transform: scale(1);
 
@@ -168,9 +170,9 @@ body {
   transform: scale(1.05);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-  
+
     }
-  
+
   .message:active {
    transform: scale(1);
 
@@ -214,9 +216,9 @@ body {
     text-align: center;
     justify-content: center;
     width: 80%;
-    height: 150px;
+    height: 160px;
     // margin: 2rem;
-  
+
   }
 }
 
@@ -225,7 +227,7 @@ body {
      text-align: center;
      justify-content: center;
      width: 40%;
-     height: 150px;
+     height: 180px;
   }
 
   #image {
