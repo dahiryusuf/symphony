@@ -28,63 +28,68 @@
 </head>
 <body>
   <%- include('partials/_nav') %>
-  
-    <form method = "POST" action = "/">
-      <div class="search">
-        <button class="search-btn" type="submit">Search</button>
-        <input name = "search" type="search" id="form1" />
-      </div>
-      </form>
 
+ <div class="content">
+  <form method = "POST" action = "/">
+    <div class="search">
+      <button class="search-btn" type="submit">Search</button>
+      <input name = "search" type="search" id="form1" />
+    </div>
+  </form>
 
-  
-      <form method = "POST" action = "/filter">
-        <div class="filter"></div>
-        Filter items:
-        <select name="values">
-          <option value="0">Price: low to high</option>
-          <option value="1">Price: high to low</option>
-        </select>
-  
-        <br />
-  
-        <input type="submit" title="Submit"/>
-      </form>
-
-      <div class="listings">
-        <i class="fas fa-store"></i>
-        <p>Listings</p>
-      </div>
+    <form method = "POST" action = "/filter">
+    <div class="filter">
+      <p>Sort by</p>
+      <select name="values">
+        <option value="0">Price: low to high</option>
+        <option value="1">Price: high to low</option>
+      </select>
+      <input type="submit" title="Submit"/>
+    </div>
+  </form>
+    
+  <div class="listings">
+    <i class="fas fa-store"></i>
+    <p>Listings</p>
+  </div>
 
 
   <ul class="cards">
     <% for (let i of items){%>
-          <li class="card">
-            <img class="card-img" src="<%=i.image%>" alt="">
 
-            <div class="card-content">
-              <div class="price">
-                <i class="fas fa-money-bill-wave"></i>
-                <p >$<%=i.price%></p>
-              </div>
+    <li class="card">
+      <img class="card-img" src="<%=i.image%>" alt="">
 
-              <h5 ><%=i.name%></h5>
-            </div>
+      <div class="card-content">
+        <div class="price">
+          <i class="fas fa-money-bill-wave"></i>
+          <p >$<%=i.price%></p>
+        </div>
 
-            <div class="card-actions">
-              <form method="POST" action="/chat/create/<%= i.id %>" >
-                <button class="btn-mini">
-                  <i class="far fa-comment-alt"></i>
-                </button>
-              </form>
-            
-             <button class="btn-mini" type="button">
-              <i class="far fa-heart"></i>
-             </button>
-            </div>
-          </li>
+        <h5 ><%=i.name%></h5>
+      </div>
+
+      <div class="card-actions">
+        <form method="POST" action="/chat/create/<%= i.id %>" >
+          <button class="btn-mini">
+            <i class="far fa-comment-alt"></i>
+          </button>
+        </form>
+      
+        <button class="btn-mini" type="button">
+        <i class="far fa-heart"></i>
+        </button>
+      </div>
+    </li>
+    
     <% }%>
   </ul>
+
+</div>
+
+
+
+
  
 
 </body>

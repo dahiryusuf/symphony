@@ -5,11 +5,56 @@ body {
   min-height: 100vh;
 }
 
+.content {
+  padding: 20px;
+}
+
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+.search input {
+  height: 35px;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: solid 2px rgb(194, 192, 192);
+  border-left: none;
+}
+
+
+.search-btn {
+
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: black;
+  color: color.$main-yellow;
+  height: 35px;
+  width: 130px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  }
+
+.filter {
+  margin-bottom: 3vh;
+}
+
 .listings {
-  padding-left: 20px;
   display: flex;
   align-items: center;
+  margin-bottom: 3vh;
 }
+
+
+
 
 .listings p{
   font-size: 1.1rem;
@@ -25,11 +70,11 @@ body {
 
 .cards {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 20px;
-  padding: 20px;
+  
 }
 
 .card {
@@ -104,46 +149,6 @@ body {
 .fa-comment-alt, .fa-heart {
   transform: scale(0.9);
 }
-
-.search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 3vh 20px;
-
-}
-.search input {
-  height: 35px;
-  outline: none;
-  padding: 5px;
-  width: 100%;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border: solid 2px rgb(194, 192, 192);
-  border-left: none;
-}
-
-.listings {
-  margin: 10px 4px ;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
-  color: rgb(80, 80, 80);
-}
-
-  .search-btn {
-
-  border-radius: 5px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  background-color: black;
-  color: color.$main-yellow;
-  height: 35px;
-  width: 130px;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 1px;
-  }
 
 
 
