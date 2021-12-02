@@ -12,14 +12,9 @@ router.get("/", (req, res) => {
     databases.getsearchItems(searchTerm)
       .then(data => {
         const items = data;
-<<<<<<< HEAD
-        const templevars = { items };
-        res.render("mainpage",templevars);
-=======
         const userID = Number(req.cookies.User);
         const templevars = { items, userID }
         res.render("mainpage",templevars)
->>>>>>> b67f72aad68a7f86754a34dc58c1465b7130923c
       })
       .catch(err => {
         res
@@ -33,14 +28,9 @@ router.get("/", (req, res) => {
       .then(data => {
         console.log("data is" , data);
         const items = data;
-<<<<<<< HEAD
-        const templevars = { items };
-        res.render("mainpage",templevars);
-=======
         const userID = Number(req.cookies.User);
         const templevars = { items, userID }
         res.render("mainpage",templevars)
->>>>>>> b67f72aad68a7f86754a34dc58c1465b7130923c
       })
       .catch(err => {
         res
@@ -52,14 +42,9 @@ router.get("/", (req, res) => {
     databases.getAllItems()
       .then(data => {
         const items = data;
-<<<<<<< HEAD
-        const templevars = { items };
-        res.render("mainpage",templevars);
-=======
         const userID = Number(req.cookies.User);
         const templevars = { items, userID }
         res.render("mainpage",templevars)
->>>>>>> b67f72aad68a7f86754a34dc58c1465b7130923c
       })
       .catch(err => {
         res

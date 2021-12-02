@@ -150,9 +150,9 @@ exports.createChat = createChat;
 
 
 //Post an item
-const addAnItem = function(item) {
+const addAnItem = function(item, userID) {
   return pool
-    .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [item.title, item.description, item.file, item.price,false,false ])
+    .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted, admin_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [item.title, item.description, item.file, item.price,false,false, userID ])
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -296,7 +296,7 @@ exports.getUser = getUser;
 
 const deleteItem = function(item) {
   return pool
-    .query(`UPDATE items SET is_deleted = true WHERE admin_id = $1 RETURNING *`, [item.id])
+    .query(`UPDATE items SET is_deleted = true WHERE id = $1 RETURNING *`, [item.admin_id])
     .then((result) => {
       if (!result.rows) {
         return null;
