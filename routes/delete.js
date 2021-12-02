@@ -16,7 +16,7 @@ module.exports = (db) => {
       admin_id: req.params.id
     };
     let result = await deleteItem(item);
-    res.redirect("/");
+    res.redirect("/mypostings");
   });
 
   return router;

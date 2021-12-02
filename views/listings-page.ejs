@@ -47,10 +47,10 @@
       <input type="submit" title="Submit"/>
     </div>
   </form>
-    
+
   <div class="listings">
     <i class="fas fa-store"></i>
-    <p>Listings</p>
+    <p>All Listings</p>
   </div>
 
 
@@ -75,13 +75,14 @@
             <i class="far fa-comment-alt"></i>
           </button>
         </form>
-      
-        <button class="btn-mini" type="button">
+        <form method="POST" action="/favourites/<%= i.id %>" >
+        <button class="btn-mini" type="submit">
         <i class="far fa-heart"></i>
         </button>
+      </form>
       </div>
     </li>
-    
+
     <% }%>
   </ul>
 
@@ -90,7 +91,7 @@
 
 
 
- 
+
 
 </body>
 
