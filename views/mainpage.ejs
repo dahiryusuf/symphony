@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Scripts -->
+  <script src="https://kit.fontawesome.com/2331eaaccf.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -27,51 +28,69 @@
 </head>
 <body>
   <%- include('partials/_nav') %>
-  <div class="page-container">
 
-
-  <ul class="items-container">
-    <form method = "POST" action = "/">
+ <div class="content">
+  <form method = "POST" action = "/">
     <div class="search">
       <button class="search-btn" type="submit">Search</button>
       <input name = "search" type="search" id="form1" />
     </div>
-    </form>
+  </form>
+
     <form method = "POST" action = "/filter">
-      <div class="filter"></div>
-      Filter items:
+    <div class="filter">
+      <p>Sort by</p>
       <select name="values">
         <option value="0">Price: low to high</option>
         <option value="1">Price: high to low</option>
       </select>
-
-      <br />
-
       <input type="submit" title="Submit"/>
-    </form>
-    <p class="listings">All Listings</p>
+    </div>
+  </form>
+    
+  <div class="listings">
+    <i class="fas fa-store"></i>
+    <p>Listings</p>
+  </div>
+
+
+  <ul class="cards">
     <% for (let i of items){%>
-          <li class="card-conatiner">
-            <img class="image" src="<%=i.image%>" alt="">
-            <div class="info-div">
-              <div class="name-price">
-                <h5 ><%=i.name%></h5>
-                <p class="price" >$<%=i.price%></p>
-              </div>
 
-              <p class="description" ><%=i.description%></p>
+    <li class="card">
+      <img class="card-img" src="<%=i.image%>" alt="">
 
-              <form method="POST" action="/chat/create/<%= i.id %>" >
-                <button class="btn">Message</button>
-              </form>
-            
-             <button class="btn" type="button">Favourite</button>
-             
-            </div>
-          </li>
+      <div class="card-content">
+        <div class="price">
+          <i class="fas fa-money-bill-wave"></i>
+          <p >$<%=i.price%></p>
+        </div>
+
+        <h5 ><%=i.name%></h5>
+      </div>
+
+      <div class="card-actions">
+        <form method="POST" action="/chat/create/<%= i.id %>" >
+          <button class="btn-mini">
+            <i class="far fa-comment-alt"></i>
+          </button>
+        </form>
+      
+        <button class="btn-mini" type="button">
+        <i class="far fa-heart"></i>
+        </button>
+      </div>
+    </li>
+    
     <% }%>
   </ul>
-  </div>
+
+</div>
+
+
+
+
+ 
 
 </body>
 

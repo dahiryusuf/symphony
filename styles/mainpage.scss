@@ -1,25 +1,16 @@
 @use 'vars/vars' as color;
 
 body {
-  
   width: 100%;
   min-height: 100vh;
-  background-color: rgb(222, 222, 222);
 }
 
-
-
-
-.page-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+.content {
+  padding: 20px;
 }
+
 
 .search {
-  margin: 5vh 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,106 +28,13 @@ body {
   border-left: none;
 }
 
-.listings {
-  margin: 10px 4px ;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
-  color: rgb(80, 80, 80);
-}
 
-.items-container {
-width: 80%;
-list-style: none;
-padding: 0;
-}
+.search-btn {
 
-.card-conatiner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  padding: 4vh;
-  display: flex;
-  background-color: rgb(245, 245, 245);
-  margin-bottom: 3vh;
-  box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-
-.info-div {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.info-div h5 {
-  font-size: 1rem;
-  margin-bottom: 3vh;
-}
-
-.info-div .price {
-  font-size: 1.1rem;
-  color: color.$main-green;
-  font-weight: 600;
-  margin-bottom: 3vh;
-}
-.description {
-  color: rgb(108, 108, 108);
-  font-size: 0.8rem;
-}
-
-.image {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  border: 1px solid rgb(199, 199, 199);
-  object-fit: cover;
-  margin-right: 3vw;
-}
-
-.name-price {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.btn {
-  margin-bottom: -2vh;
-  margin-top: 2vh;
-  background-color: color.$main-green;
-  color: color.$main-yellow;
-  height: 30px;
-  width: 110px;
-  border: none;
-  border-radius: 5px;
-  transition: all .2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
-  align-self: flex-end;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-
-  }
-
-  .btn:hover {
-  transform: scale(1.05);
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-
-    }
-
-  .btn:active {
-   transform: scale(1);
-
-  }
-
-  .search-btn {
-  margin: 0;
   border-radius: 5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  background-color: color.$main-green;
+  background-color: black;
   color: color.$main-yellow;
   height: 35px;
   width: 130px;
@@ -145,55 +43,117 @@ padding: 0;
   letter-spacing: 1px;
   }
 
+.filter {
+  margin-bottom: 3vh;
+}
+
+.listings {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+
+
+
+.listings p{
+  font-size: 1.1rem;
+}
+
+.fa-store {
+  transform: scale(0.8);
+  margin-right: 5px;
+  color: rgb(153, 41, 41);
+}
+
+
+
+.cards {
+  margin: 0 auto;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  
+}
+
+.card {
+  border-radius: 5px;
+  list-style: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.151);
+  background-color: rgb(250, 249, 249);
+  cursor: pointer;
+ 
+  
+}
+
+.card:hover {
+  border: solid 1px rgb(172, 172, 172);
+}
+
+.card-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-content {
+  line-height: 1.5;
+  font-size: 0.9em;
+  padding: 15px;
+  
+}
+
+.card-content h5 {
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  color: rgb(100, 100, 100);
+
+}
+
+.fa-money-bill-wave {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.card-actions {
+  display: flex;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.btn-mini {
+  background-color: color.$main-yellow;
+  border-radius: 100px;
+  padding: 4px;
+  width: 36px;
+  border: none;
+  color: rgb(75, 43, 43);
+  margin-right: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-mini:hover {
+  background-color: rgba(230, 158, 43, 0.774);
+}
+
+.fa-comment-alt, .fa-heart {
+  transform: scale(0.9);
+}
+
+
+
   @media all and (max-width: 500px) {
 
-    .items-container {
-      width: 100%;
-
-      }
-
-    .image {
-      width: 90px;
-      height: 90px;
-
-    }
-    .card-conatiner {
-      padding: 3vh 1vh 1vh 1vh;
-      justify-content: flex-start;
-    }
-    .btn {
-      margin-bottom: -0;
-
-      }
-    .description {
-      font-size: 1.1rem;
-      display: inline-block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      width: 60vw;
-      margin-top: vh;
-    }
-    .info-div h5 {
-      font-size: 1.3rem;
-      margin: 0;
-    }
-    .name-price {
-    flex-direction: column;
-    align-items: flex-start;
-    }
-
-    .info-div .price {
-      font-size: 1.1rem;
-      margin: 0;
-      color: color.$main-green;
-      font-weight: 600;
-    }
-    .search-btn {
-
-      border-radius: 0px;
-
-      }
 
   }
 
