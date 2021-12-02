@@ -37,10 +37,9 @@
     <h2> Your Postings </h2>
     <ul class="cards">
       <% for (let i of items){%>
-
+        <% if(!i.is_sold){ %>
       <li class="card">
         <img class="card-img" src="<%=i.image%>" alt="">
-
         <div class="card-content">
           <div class="price">
             <i class="fas fa-money-bill-wave"></i>
@@ -51,9 +50,9 @@
         </div>
 
         <div class="card-actions">
-          <form method="POST" action="/chat/create/<%= i.id %>" >
-            <button class="btn-mini">
-              <i class="far fa-comment-alt"></i>
+          <form method="POST" action="/sold/<%=i.id%>">
+            <button type = "submit" class="btn-mini">
+              <i class="fas fa-dollar-sign"></i>
             </button>
           </form>
           <form method="POST" action="/delete/<%= i.id %>" >
@@ -64,6 +63,35 @@
           </div>
       </li>
 
+      <% } else {%>
+        <li class="card">
+          <div class="parent">
+            <img class="soldlist card-img" src="<%=i.image%>" alt="">
+            <img src="http://www.bforklift.ca/wp-content/uploads/2017/02/sold.png" class="over-img"/>
+        </div>
+
+          <div class="card-content">
+            <div class="price">
+              <i class="fas fa-money-bill-wave"></i>
+              <p >$<%=i.price%></p>
+            </div>
+
+            <h5 ><%=i.name%></h5>
+          </div>
+
+          <div class="card-actions">
+
+            <form method="POST" action="/delete/<%= i.id %>" >
+            <button class="btn-mini" type="submit">
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </form>
+            </div>
+        </li>
+
+
+
+        <% }%>
       <% }%>
     </ul>
 

@@ -282,7 +282,7 @@ const getPostings = function(userId) {
   return pool
     .query(`  SELECT *
   FROM items
-  Where admin_id = ${userId} AND is_deleted IS false;`)
+  Where admin_id = $1 AND is_deleted IS false;`, [userId])
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -328,3 +328,19 @@ const deleteItem = function(item) {
     });
 };
 exports.deleteItem = deleteItem;
+
+const soldItem = function(id) {
+  return pool
+    .query(`UPDATE items SET is_sold = true WHERE id = $1`, [id])
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.soldItem = soldItem;
