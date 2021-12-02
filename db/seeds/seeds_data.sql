@@ -109,6 +109,42 @@ false,
 false
 );
 
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
+'Alto Saxophone',
+'Yamaha alto saxophone YAS-21. Just been through maintenance. Made in Japan, beautiful sound. Great condition. Box included.',
+'https://i.imgur.com/0fIFklo.jpeg',
+900,
+2,
+false,
+false
+);
+
+INSERT INTO items (name,
+  description,
+  image,
+  price,
+  admin_id,
+  is_sold,
+  is_deleted)
+  VALUES (
+'Trumpet',
+'Great condition trumpet. Silver model. Made in Japan. Comes in original padded hard case and with original mouth piece.
+
+Could use a bit of polishing (blemishes are just from tarnish of the silver)',
+'https://cdn.jpmusicalinstruments.com/uploads/prod_img/2_629_s.png?v=-62169984000',
+900,
+2,
+false,
+false
+);
+
 INSERT INTO favourites (item_id, user_id)
 VALUES (1, 1),
 (2, 1),
