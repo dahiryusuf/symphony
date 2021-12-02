@@ -55,29 +55,29 @@
     <i class="fas fa-long-arrow-alt-right"></i>
   </a>
 </section>
-  
+
 
       <ul class="cards">
- 
+
         <% for (let i of items){%>
           <a class="card-link" href="/items/my-item/<%= i.id %>">
             <li class="card">
               <img class="card-img" src="<%=i.image%>" alt="">
-        
+
               <div class="card-content">
                 <div class="price">
                   <i class="fas fa-money-bill-wave"></i>
                   <p >$<%=i.price%></p>
                 </div>
-        
+
                 <h5 ><%=i.name%></h5>
               </div>
-        
+
             </li>
           </a>
-  
+
         <% }%>
-  
+
 
       </ul>
 
