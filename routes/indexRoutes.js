@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 //const {} = require('../public/scripts/database');
 
-router.get('/index', (req, res) => {
+router.get('/', (req, res) => {
   const userID = Number(req.cookies.User);
   const vars = {userID};
   res.render('index.ejs', vars);
