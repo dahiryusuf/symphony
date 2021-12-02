@@ -150,9 +150,9 @@ exports.createChat = createChat;
 
 
 //Post an item
-const addAnItem = function(item) {
+const addAnItem = function(item, userID) {
   return pool
-    .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted) VALUES($1, $2, $3, $4, $5, $6) RETURNING *`, [item.title, item.description, item.file, item.price,false,false ])
+    .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted, admin_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [item.title, item.description, item.file, item.price,false,false, userID ])
     .then((result) => {
       if (!result.rows) {
         return null;
@@ -261,26 +261,26 @@ exports.addToFavourites = addToFavourites;
 
 const getPostings = function(userId) {
   return pool
-  .query(`  SELECT *
+    .query(`  SELECT *
   FROM items
   Where admin_id = ${userId}`)
-  .then((result) => {
-    if (!result.rows) {
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
       return null;
-    }
-    return result.rows;
-  })
-  .catch((err) => {
-    console.log(err.message);
-    return null;
-  });
+    });
 };
 exports.getPostings = getPostings;
 
 const getUser = function(userID) {
   return pool
-  .query(`SELECT * FROM users WHERE id = $1`, [userID])
-  .then((result) => {
+    .query(`SELECT * FROM users WHERE id = $1`, [userID])
+    .then((result) => {
       if (!result.rows) {
         return null;
       }
@@ -296,8 +296,8 @@ exports.getUser = getUser;
 
 const deleteItem = function(item) {
   return pool
-  .query(`UPDATE items SET is_deleted = true WHERE id = $1 RETURNING *`, [item.id])
-  .then((result) => {
+    .query(`UPDATE items SET is_deleted = true WHERE id = $1 RETURNING *`, [item.admin_id])
+    .then((result) => {
       if (!result.rows) {
         return null;
       }

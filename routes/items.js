@@ -15,6 +15,7 @@ module.exports = (db) => {
   });
 
   router.post("/items/post", async(req, res) => {
+    const userID = Number(req.cookies.User);
     console.log(req.body);
     let item = {
       title: req.body.title,
@@ -22,7 +23,7 @@ module.exports = (db) => {
       file: req.body.image,
       price: req.body.price
     };
-    let result = await addAnItem(item);
+    let result = await addAnItem(item, userID);
     res.redirect(`my-item/${result[0].id}`);
   });
 
@@ -37,7 +38,7 @@ module.exports = (db) => {
     let result1 = result[0];
     let user = await getUser(userID);
     let vars = {result1, userID, user};
-    console.log(vars);
+    // console.log(req.cookies.User);
     res.render("item-display", vars);
   });
 

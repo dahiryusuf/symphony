@@ -58,6 +58,7 @@ const favourites = require("./routes/favouritesRoute");
 const postings = require("./routes/postings");
 const registerRoutes = require("./routes/register");
 const logoutRoutes = require("./routes/logoutRoute");
+const indexRoutes = require("./routes/indexRoutes");
 const deleteItem = require('./routes/delete');
 
 // Mount all resource routes
@@ -70,6 +71,7 @@ app.use('/', registerRoutes);
 app.use("/", loginRoutes);
 app.use("/", favourites);
 app.use("/", logoutRoutes);
+app.use("/", indexRoutes);
 app.use("/", postings);
 app.use('/', deleteItem(db));
 
