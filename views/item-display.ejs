@@ -32,16 +32,16 @@
           <div class="item-description"><%= result1.description %></div>
 
           <div class="actions">
-            <form  method="GET" action="/api/items/messages/">
-              <button class="message" type="submit">Message</button>
+            <form  method="POST" action="/chat/create/<%= result1.id %>">
+              <button class = "btn-mini" type="submit"><i class="far fa-comment-alt"></i></button>
             </form>
             <form class="favourite" method="POST" action="/favourites/<%= result1.id %>">
-              <!-- <button type="submit" class="favourite-icon"> <i class="far fa-heart"></i></button> -->
-              <button class="favourite-icon" type="submit">Favourite</button>
+              <button type="submit" class = "btn-mini" > <i class="far fa-heart"></i></button>
+              <!-- <button class="favourite-icon" type="submit">Favourite</button> -->
             </form>
             <% if (user[0].is_admin === true) { %>
               <form class="edit" method="POST" action="/delete/<%= result1.id %>">
-                <button class="edit1" type="submit">Delete</button>
+                <button class = "btn-mini" type="submit"><i class="fas fa-trash-alt"></i></button>
               </form>
             <% }%>
           </div>
@@ -53,3 +53,6 @@
 
 </body>
 </html>
+<!-- class="message" -->
+<!-- class="favourite-icon"-->
+<!--class="edit1"--!>

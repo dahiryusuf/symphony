@@ -50,7 +50,7 @@ body {
 #item-title {
   width: 500px;
   height: 50px;
-  
+
   border: color.$main-green 1px solid;
   margin-bottom: 1rem;
   border-radius: 5px;
@@ -60,7 +60,7 @@ body {
 .actions {
   width: fit-content;
   margin-right: 1rem;
- background-color: color.$main-green;
+ background-color: black;
  color: color.$main-yellow;
  height: 30px;
  width: 110px;
@@ -77,9 +77,9 @@ body {
   transform: scale(1.05);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-  
+
     }
-  
+
   .actions:active {
    transform: scale(1);
 
