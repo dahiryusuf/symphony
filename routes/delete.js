@@ -4,7 +4,7 @@ const  {deleteItem} = require('../public/scripts/database');
 
 module.exports = (db) => {
 
-  router.post("/delete/:id", async (req, res) => {
+  router.post("/delete/:id", async(req, res) => {
 
     console.log(req.params.id);
     if (!req.params.id) {
@@ -16,7 +16,7 @@ module.exports = (db) => {
       admin_id: req.params.id
     };
     let result = await deleteItem(item);
-    res.redirect("/");
+    res.redirect("/mypostings");
   });
 
   return router;

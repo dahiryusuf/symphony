@@ -28,7 +28,7 @@ router.get("/listings", (req, res) => {
             user = result[0];
           }
           const templevars = { items, user };
-          res.render("mainpage",templevars);
+          res.render("listings-page",templevars);
         });
       })
       .catch(err => {
@@ -50,7 +50,7 @@ router.get("/listings", (req, res) => {
             user = result[0];
           }
           const templevars = { items, user };
-          res.render("mainpage",templevars);
+          res.render("listings-page",templevars);
         });
       })
       .catch(err => {
@@ -70,7 +70,7 @@ router.get("/listings", (req, res) => {
             user = result[0];
           }
           const templevars = { items, user };
-          res.render("mainpage",templevars);
+          res.render("listings-page",templevars);
         });
 
       })
@@ -85,7 +85,7 @@ router.post("/", (req, res) => {
   searchTerm = req.body.search;
   search = 1;
 
-  res.redirect("/");
+  res.redirect("/listings");
 });
 router.post("/filter", (req, res) => {
   search = 2;
@@ -95,7 +95,7 @@ router.post("/filter", (req, res) => {
     filterTerm = 'DESC';
   }
 
-  res.redirect("/");
+  res.redirect("/listings");
 });
 module.exports = router;
 

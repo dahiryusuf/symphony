@@ -18,7 +18,6 @@ const getAllItems = function() {
       if (!result.rows) {
         return null;
       }
-      console.log(result.rows);
       return result.rows;
     })
     .catch((err) => {
@@ -27,6 +26,26 @@ const getAllItems = function() {
     });
 };
 exports.getAllItems = getAllItems;
+
+const getAllItemsFront = function() {
+  return pool
+    .query(`
+  SELECT *
+  FROM items
+  Where is_sold IS false AND is_deleted IS false
+  LIMIT 3;`)
+    .then((result) => {
+      if (!result.rows) {
+        return null;
+      }
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+      return null;
+    });
+};
+exports.getAllItemsFront = getAllItemsFront;
 
 const getAllChats = function(userID) {
   return pool.query(`
@@ -264,7 +283,7 @@ const getPostings = function(userId) {
   return pool
     .query(`  SELECT *
   FROM items
-  Where admin_id = ${userId}`)
+  Where admin_id = ${userId} AND is_deleted IS false;`)
     .then((result) => {
       if (!result.rows) {
         return null;
