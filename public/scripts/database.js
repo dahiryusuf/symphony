@@ -59,6 +59,7 @@ const getAllChats = function(userID) {
 };
 exports.getAllChats = getAllChats;
 
+
 const getChatInfo = function(chatID) {
   return pool.query(`
   SELECT

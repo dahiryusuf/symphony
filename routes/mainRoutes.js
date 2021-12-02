@@ -3,18 +3,33 @@ const express = require('express');
 const router  = express.Router();
 const databases = require("../public/scripts/database");
 const cookieParser = require('cookie-parser');
+const { getUser } = require('../public/scripts/database');
+
+
 router.use(cookieParser());
+
+
+
 let search = 0;
 let  searchTerm = 0;
 let filterTerm = "";
+
 router.get("/listings", (req, res) => {
+
   if (search === 1) {
     databases.getsearchItems(searchTerm)
       .then(data => {
         const items = data;
         const userID = Number(req.cookies.User);
-        const templevars = { items, userID };
-        res.render("mainpage",templevars);
+
+        getUser(userID).then((result) => {
+          let user = null;
+          if (result) {
+            user = result[0];
+          }
+          const templevars = { items, user };
+          res.render("mainpage",templevars);
+        });
       })
       .catch(err => {
         res
@@ -29,8 +44,14 @@ router.get("/listings", (req, res) => {
         console.log("data is" , data);
         const items = data;
         const userID = Number(req.cookies.User);
-        const templevars = { items, userID };
-        res.render("mainpage",templevars);
+        getUser(userID).then((result) => {
+          let user = null;
+          if (result) {
+            user = result[0];
+          }
+          const templevars = { items, user };
+          res.render("mainpage",templevars);
+        });
       })
       .catch(err => {
         res
@@ -43,8 +64,15 @@ router.get("/listings", (req, res) => {
       .then(data => {
         const items = data;
         const userID = Number(req.cookies.User);
-        const templevars = { items, userID };
-        res.render("mainpage",templevars);
+        getUser(userID).then((result) => {
+          let user = null;
+          if (result) {
+            user = result[0];
+          }
+          const templevars = { items, user };
+          res.render("mainpage",templevars);
+        });
+
       })
       .catch(err => {
         res

@@ -4,6 +4,8 @@ const databases = require("../public/scripts/database");
 const { addToFavourites } = require('../public/scripts/database');
 const cookieParser = require('cookie-parser');
 router.use(cookieParser());
+const { getUser } = require('../public/scripts/database');
+
 
 
 
@@ -11,10 +13,18 @@ router.use(cookieParser());
 router.get("/mypostings", (req, res) => {
   databases.getPostings(req.cookies.User)
     .then(data => {
-      const userID = Number(req.cookies.User);
       const items = data;
-      const templevars = { items, userID };
-      res.render("postings",templevars);
+      const userID = Number(req.cookies.User);
+      getUser(userID).then((result) => {
+        let user = null;
+        if (result) {
+          user = result[0];
+        }
+        const templevars = { items, user };
+        res.render("postings",templevars);
+      });
+     
+   
     })
     .catch(err => {
       res

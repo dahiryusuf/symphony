@@ -2,13 +2,18 @@ const express = require('express');
 const router  = express.Router();
 const cookieParser = require('cookie-parser');
 router.use(cookieParser());
-//const {} = require('../public/scripts/database');
+const {getUser} = require('../public/scripts/database');
 
 router.get('/', (req, res) => {
   const userID = Number(req.cookies.User);
-  const vars = {userID};
-  res.render('index.ejs', vars);
-
+  getUser(userID).then((result) => {
+    let user = null;
+    if (result) {
+      user = result[0];
+    }
+    const vars = { user };
+    res.render('index.ejs', vars);
+  });
 });
 
 

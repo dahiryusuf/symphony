@@ -56,7 +56,7 @@
 
   <ul class="cards">
     <% for (let i of items){%>
-
+  <a class="card-link" href="/items/my-item/<%= i.id %>">
     <li class="card">
       <img class="card-img" src="<%=i.image%>" alt="">
 
@@ -81,6 +81,8 @@
         </button>
       </div>
     </li>
+  </a>
+   
     
     <% }%>
   </ul>

@@ -9,13 +9,18 @@ const {getUser} = require('../public/scripts/database');
 module.exports = (db) => {
   router.get("/items/post", (req, res) => {
     const userID = Number(req.cookies.User);
-    //console.log("HERE")
-    const vars = {userID};
-    res.render("create-post", vars);
+
+    getUser(userID).then((result) => {
+      let user = null;
+      if (result) {
+        user = result[0];
+      }
+      const vars = { user };
+      res.render("create-post", vars);
+    });
   });
 
   router.post("/items/post", async(req, res) => {
-    const userID = Number(req.cookies.User);
     console.log(req.body);
     let item = {
       title: req.body.title,
@@ -23,7 +28,7 @@ module.exports = (db) => {
       file: req.body.image,
       price: req.body.price
     };
-    let result = await addAnItem(item, userID);
+    let result = await addAnItem(item);
     res.redirect(`my-item/${result[0].id}`);
   });
 

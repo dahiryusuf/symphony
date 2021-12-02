@@ -37,7 +37,7 @@
  
     
    
-    <p><%= userID === chat.seller ? chat.buyer_name : chat.seller_name %>  · 
+    <p><%= user.id === chat.seller ? chat.buyer_name : chat.seller_name %>  · 
       <%= chat.item %></p>
     <div class="contact">
       <a href="mailto:insertemailhere@xyz.com">
@@ -54,7 +54,7 @@
       <% for(message of messages) { %>
         <div class="message">
           <p
-          <%= userID === message.sender_id ? 'id=my-message' : '' %>
+          <%= user.id === message.sender_id ? 'id=my-message' : '' %>
           ><%= message.message %>
         </p>
         </div>
@@ -65,7 +65,7 @@
   </div>
 
 
-    <form class="input-container" method="POST" action="/messages/<%= chat.chat_id %>/<%= userID %>">
+    <form class="input-container" method="POST" action="/messages/<%= chat.chat_id %>/<%= user.id %>">
       <textarea name="message"></textarea>
       <button class="send-button">Send</button>
     </form>
