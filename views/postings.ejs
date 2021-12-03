@@ -44,6 +44,9 @@
     <ul class="cards">
       <% for (let i of items){%>
         <% if(!i.is_sold){ %>
+          <a class="card-link" href="/items/my-item/<%= i.id %>">
+          
+          
       <li class="card">
         <img class="card-img" src="<%=i.image%>" alt="">
         <div class="card-content">
@@ -98,7 +101,9 @@
 
 
         <% }%>
+      </a>
       <% }%>
+    
     </ul>
 
   </div>
