@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/mainpage.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/mypostings.css" type="text/css" />
   <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,16 +34,19 @@
   <div class="page-container">
 
 
-  <ul class="items-container">
+  <ul class="content">
     <div class="search">
       <button class="search-btn" type="button">Search</button>
-      <input type="search" id="form1" />
+      <input placeholder="What are you searching for..." type="search" id="form1" />
 
     </div>
-    <h2> Your Postings </h2>
+    <h2 class="your-postings"> Your Postings </h2>
     <ul class="cards">
       <% for (let i of items){%>
         <% if(!i.is_sold){ %>
+          <a class="card-link" href="/items/my-item/<%= i.id %>">
+          
+          
       <li class="card">
         <img class="card-img" src="<%=i.image%>" alt="">
         <div class="card-content">
@@ -97,7 +101,9 @@
 
 
         <% }%>
+      </a>
       <% }%>
+    
     </ul>
 
   </div>

@@ -166,10 +166,6 @@ const createChat = function(itemID, userID) {
 };
 exports.createChat = createChat;
 
-
-
-
-//Post an item
 const addAnItem = function(item, userID) {
   return pool
     .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted, admin_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [item.title, item.description, item.file, item.price,false,false, userID ])
@@ -192,7 +188,6 @@ const getAnItem = function(id) {
   FROM items
   WHERE id=$1`, [id])
     .then((result) => {
-      //console.log(result.rows);
       if (!result.rows) {
         return null;
       }
@@ -212,7 +207,8 @@ const getFavorites = function(userId) {
     SELECT *
     FROM favourites
     Join items On items.id = item_id
-    Where user_id = ${userId};`)
+    Where user_id = ${userId}
+    AND is_deleted = false;`)
     .then((result) => {
       if (!result.rows) {
         return null;

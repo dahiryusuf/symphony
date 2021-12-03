@@ -52,7 +52,6 @@ const loginRoutes = require("./routes/loginRoute");
 
 const itemsRoutes = require("./routes/items");
 const messagesRouter = require('./routes/messages');
-//const favouritesRoutes = require("./routes/favourites");
 const favourites = require("./routes/favouritesRoute");
 const postings = require("./routes/postings");
 const registerRoutes = require("./routes/register");
@@ -73,7 +72,7 @@ app.use("/", indexRoutes);
 app.use("/", postings);
 app.use('/', deleteItem(db));
 
-// app.use("/api/favourites", favouritesRoutes(db));
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page

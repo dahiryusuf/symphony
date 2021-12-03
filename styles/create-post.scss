@@ -4,7 +4,6 @@ body {
   min-height: 100vh;
 }
 .container {
-  // width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -18,8 +17,6 @@ body {
 }
 
 .choose-image {
-  // text-align: center;
-  // border: 1px red solid;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
@@ -68,7 +65,6 @@ body {
  border-radius: 5px;
  transition: all .2s ease-in-out;
  box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
- //align-self: flex-end;
  letter-spacing: 1px;
  font-size: 0.9rem;
  margin: 0.2rem;
@@ -77,13 +73,11 @@ body {
   transform: scale(1.05);
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
+}
 
-    }
-
-  .actions:active {
+.actions:active {
    transform: scale(1);
-
-  }
+}
 
 #price1 {
   margin-top: 1rem;

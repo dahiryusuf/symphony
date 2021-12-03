@@ -42,7 +42,6 @@
             </form>
             <form class="favourite" method="POST" action="/favourites/<%= result1.id %>">
               <button type="submit" class = "btn-mini" > <i class="far fa-heart"></i></button>
-              <!-- <button class="favourite-icon" type="submit">Favourite</button> -->
             </form>
             <% if (user[0].is_admin === true) { %>
               <form class="edit" method="POST" action="/delete/<%= result1.id %>">
@@ -55,9 +54,5 @@
           <img id="image" src="<%= result1.image %>" alt="Generic placeholder image">
         </div>
       </div>
-      <%- include('partials/_footer') %>
 </body>
 </html>
-<!-- class="message" -->
-<!-- class="favourite-icon"-->
-<!--class="edit1"--!>
