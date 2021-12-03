@@ -164,7 +164,6 @@ INSERT INTO items (name,
   VALUES (
 'Trumpet',
 'Great condition trumpet. Silver model. Made in Japan. Comes in original padded hard case and with original mouth piece.
-
 Could use a bit of polishing (blemishes are just from tarnish of the silver)',
 'https://images.unsplash.com/photo-1511192336575-5a79af67a629?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80',
 900,
