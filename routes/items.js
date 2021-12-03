@@ -21,7 +21,6 @@ module.exports = (db) => {
   });
 
   router.post("/items/post", async(req, res) => {
-    console.log(req.body);
     let item = {
       title: req.body.title,
       description: req.body.description,
@@ -43,7 +42,6 @@ module.exports = (db) => {
     let result1 = result[0];
     let user = await getUser(userID);
     let vars = {result1, userID, user};
-    // console.log(req.cookies.User);
     res.render("item-display", vars);
   });
 

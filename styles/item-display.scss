@@ -11,67 +11,39 @@ body {
   background-color: #d7d7d7 !important;
 }
 .edit {
-  //border: yellow 3px solid;
   @include flexRow();
   flex-direction: flex-end;
   align-items: flex-end;
   width: 100%
 
 }
-// .edit1 {
-//   width: fit-content;
-//    margin-right: 1rem;
-//   // margin-bottom: -2vh;
-//   // margin-top: 2vh;
-//   background-color: color.$main-brown;
-//   color: color.$main-yellow;
-//   height: 30px;
-//   width: 110px;
-//   border: none;
-//   border-radius: 5px;
-//   transition: all .2s ease-in-out;
-//   box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
-//   //align-self: flex-end;
-//   letter-spacing: 1px;
-//   font-size: 0.9rem;
-//   margin: 0.2rem;
 
-// }
 .text-box {
   @include flexColumn();
   flex-direction: flex-start;
   align-items: flex-start;
-  //border: green 3px solid;
-  width: 70%;
+  width: 65%;
   h1: {
     margin: 0;
   }
 }
 .image {
-  //border: black 3px solid;
   text-align: center;
   justify-content: center;
   width: 30%;
   height: 250px;
-  // margin: 2rem;
-
 }
 
 .item-description {
-  //border: black 3px solid;
   width: 100%;
   height: 100px;
   min-height: 100px;
-  // margin-bottom: 2rem;
   color: rgb(108, 108, 108);
   font-size: 1rem;
   @include flexRow();
   align-items: center;
   height: fit-content;
   padding: 10px 0 10px 0;
-
-
-
 }
 
 .actions {
@@ -94,20 +66,16 @@ body {
 
 #image {
   height: 100%;
-  width: auto;
-  // width: 100px;
-  // height: 100px;
+  width: 100%;
   border-radius: 10px;
   border: 1px solid rgb(199, 199, 199);
   object-fit: cover;
-  margin-right: 3vw;
 }
 .item-display {
-  // @include flexRow();
   display: flex;
   flex-direction: row-reverse;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   margin: 5rem;
   padding: 3rem;
   border-radius: 10px;
@@ -118,36 +86,7 @@ body {
 .favourite {
   width: fit-content;
 }
-// .favourite-icon {
-//   width: fit-content;
-//   margin-right: 1rem;
-//  // margin-bottom: -2vh;
-//  // margin-top: 2vh;
-//  background-color: color.$main-green;
-//  color: color.$main-yellow;
-//  height: 30px;
-//  width: 110px;
-//  border: none;
-//  border-radius: 5px;
-//  transition: all .2s ease-in-out;
-//  box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
-//  //align-self: flex-end;
-//  letter-spacing: 1px;
-//  font-size: 0.9rem;
-//  margin: 0.2rem;
 
-// }
-// .favourite-icon:hover {
-//   transform: scale(1.05);
-//   cursor: pointer;
-//   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
-
-//     }
-
-//   .favourite-icon:active {
-//    transform: scale(1);
-
-//   }
   .btn-mini {
     background-color: color.$main-yellow;
     border-radius: 100px;
@@ -163,37 +102,8 @@ body {
   .btn-mini:hover {
     background-color: rgba(230, 158, 43, 0.774);
   }
-// .message {
-//    width: fit-content;
-//    margin-right: 1rem;
-//   // margin-bottom: -2vh;
-//   // margin-top: 2vh;
-//   background-color: color.$main-green;
-//   color: color.$main-yellow;
-//   height: 30px;
-//   width: 110px;
-//   border: none;
-//   border-radius: 5px;
-//   transition: all .2s ease-in-out;
-//   box-shadow: rgba(0, 0, 0, 0.35) 5px 3px 10px;
-//   //align-self: flex-end;
-//   letter-spacing: 1px;
-//   font-size: 0.9rem;
-//   margin: 0.2rem;
-// }
-// .message:hover {
-//   transform: scale(1.05);
-//   cursor: pointer;
-//   box-shadow: rgba(0, 0, 0, 0.35) 5px 10px 15px;
 
-//     }
-
-//   .message:active {
-//    transform: scale(1);
-
-//   }
 .item-name {
-  //border: yellow 3px solid;
   font-size: 30px;
   margin: 0.3rem;
 }
@@ -204,22 +114,44 @@ body {
   color:rgb(100, 100, 100);
 }
 .top-row {
-  //border: blue 3px solid;
   @include flexRow();
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
 
 }
 
+@media only screen and (max-width: 600px) {
+  .top-row {
+    flex-direction: column;
+  }
+  .item-display {
+    margin: 1rem;
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+  .actions{
+    display: flex;
+    justify-content: space-between !important;
+    margin: 0;
+    width: 100%;
+  }
+  .actions form button{
+    width: 80px;
+    height: 80px;
+  }
+  .actions form button i {
+    font-size: 44px;
+  }
+  .edit {
+    width: fit-content;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .item-display {
-    // @include flexColumn();
     flex-direction: column-reverse;
   }
-  // #image {
-  //   height: 140px;
-  // }
   .actions {
     @include flexRow();
     justify-content: flex-end;
@@ -227,14 +159,15 @@ body {
     margin: 1rem 1rem 0 auto;
   }
   .image {
-    //border: black 3px solid;
     text-align: center;
     justify-content: center;
     width: 80%;
-    height: 160px;
-    // margin: 2rem;
-
+    height: 200px;
   }
+  .text-box {
+    width: 80%;
+  }
+
 }
 
 @media only screen and (min-width: 901px) and (max-width: 1023px) {
@@ -244,13 +177,7 @@ body {
      width: 40%;
      height: 180px;
   }
-
-  #image {
-    height: 250px;
-    width: auto;
-    border-radius: 10px;
-    border: 1px solid rgb(199, 199, 199);
-    object-fit: cover;
-    margin-right: 3vw;
+  .text-box {
+    width: 55%;
   }
 }

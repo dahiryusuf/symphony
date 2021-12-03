@@ -132,7 +132,7 @@ Advanced flute mouthpiece embouchure design for easy play for student and beginn
 Durable lightweight flute case protects flute against the physical damage.',
 'https://media.istockphoto.com/photos/silver-flute-with-path-picture-id172142833?k=20&m=172142833&s=612x612&w=0&h=8k3h43N84O9dDz-uQRtjCs6sgEdLV_CihalDufDuIZc=',
 800,
-1,
+2,
 false,
 false
 );
