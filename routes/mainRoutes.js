@@ -15,8 +15,8 @@ let  searchTerm = 0;
 let filterTerm = "";
 
 router.get("/listings", (req, res) => {
-
   if (search === 1) {
+    search = 0;
     databases.getsearchItems(searchTerm)
       .then(data => {
         const items = data;
@@ -36,9 +36,10 @@ router.get("/listings", (req, res) => {
           .status(500)
           .json({ error: err.message });
       });
-    search = 0;
+
   }
-  if (search === 2) {
+  else if (search === 2) {
+    search = 0;
     databases.getFilterItems(filterTerm)
       .then(data => {
         console.log("data is" , data);
@@ -58,7 +59,7 @@ router.get("/listings", (req, res) => {
           .status(500)
           .json({ error: err.message });
       });
-    search = 0;
+
   } else {
     databases.getAllItems()
       .then(data => {
