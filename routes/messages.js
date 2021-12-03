@@ -4,8 +4,6 @@ const cookieParser = require('cookie-parser');
 router.use(cookieParser());
 const { getUser, createChat, checkChatExists, addMessage, getAllChats, getAllMessages, getChatInfo } = require('../public/scripts/database');
 
-
-//displaty individual chat
 router.post('/messages/:chatId/:senderId', (req, res) => {
   console.log('these are the params: ',req.params);
   console.log('these are the body: ', req.body);
