@@ -21,13 +21,14 @@ module.exports = (db) => {
   });
 
   router.post("/items/post", async(req, res) => {
+    const userID = Number(req.cookies.User);
     let item = {
       title: req.body.title,
       description: req.body.description,
       file: req.body.image,
       price: req.body.price
     };
-    let result = await addAnItem(item);
+    let result = await addAnItem(item,userID);
     res.redirect(`my-item/${result[0].id}`);
   });
 

@@ -167,6 +167,7 @@ const createChat = function(itemID, userID) {
 exports.createChat = createChat;
 
 const addAnItem = function(item, userID) {
+  console.log("admin id is",userID)
   return pool
     .query(`INSERT INTO items (name, description, image, price, is_sold, is_deleted, admin_id) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *`, [item.title, item.description, item.file, item.price,false,false, userID ])
     .then((result) => {
