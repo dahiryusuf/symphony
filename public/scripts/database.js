@@ -207,7 +207,8 @@ const getFavorites = function(userId) {
     SELECT *
     FROM favourites
     Join items On items.id = item_id
-    Where user_id = ${userId};`)
+    Where user_id = ${userId}
+    AND is_deleted = false;`)
     .then((result) => {
       if (!result.rows) {
         return null;
